@@ -1,0 +1,100 @@
+#!/usr/bin/env python3
+
+from ephys_pipeline import (
+    read_json,
+    ExperimentInserter,
+    ChanMapInserter,
+    AnalogSignalInserter,
+    DiscreteSignalInserter,
+    RecordingSession,
+)
+import argparse
+import pdb
+
+# TODO warn users when input analog signals are not equal to inserted analog signals
+# TODO write what to do on duplicates
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--experiment",
+        default=False,
+        action="store_true",
+        help="use this flag if inserting an experiment",
+    )
+    parser.add_argument(
+        "--recording_insert",
+        default=False,
+        action="store_true",
+        help="use this flag if inserting a recording session",
+    )
+    parser.add_argument(
+        "--chan_map",
+        default=False,
+        action="store_true",
+        help="use this flag if inserting chan maps",
+    )
+    parser.add_argument(
+        "--analog_signals",
+        default=False,
+        action="store_true",
+        help="use this flag if inserting analog signals",
+    )
+    parser.add_argument(
+        "--discrete_signals",
+        default=False,
+        action="store_true",
+        help="use this flag if inserting discrete signals",
+    )
+    parser.add_argument("-s", "--duplicates", action="skip", default=True)
+    parser.add_argument("-i", "--input", help="input json")
+
+    args = parser.parse_args()
+
+    assert (
+        bool(args.experiment)
+        + bool(args.recording_insert)
+        + bool(args.chan_map)
+        + bool(args.analog_signals)
+        + bool(args.discrete_signals)
+        == 1
+    ), "Must be run in one of recording_import, recording_insert, chan_map or experiment mode"
+
+    input_json = read_json(args.input)
+    if args.experiment:
+        for experiment in input_json:
+            inserter = ExperimentInserter(**experiment, duplicates=args.duplicates)
+            inserter.run_inserts()
+    elif args.chan_map:
+        for chan_map in input_json:
+            inserter = ChanMapInserter(
+                chan_map["meta"],
+                chan_map["chan_map"],
+                chan_map["shank"],
+                duplicates=args.duplicates,
+            )
+            inserter.run_inserts()
+    elif args.analog_signals:
+        for analog_signal in input_json:
+            inserter = AnalogSignalInserter(**analog_signal, duplicates=args.duplicates)
+            inserter.run_inserts()
+    elif args.discrete_signals:
+        for discrete_signal in input_json:
+            inserter = DiscreteSignalInserter(
+                **discrete_signal, duplicates=args.duplicates
+            )
+            inserter.run_inserts()
+    elif args.recording_insert:
+        for params in input_json:
+            session = RecordingSession(**params, duplicates=args.duplicates)
+            session.process_data()
+
+    # recording_session = RecordingSession(**x)
+    # recording_session.process_data(session=session)
+    # inserter = RecordingSessionInserter(recording_session)
+    # inserter.run_inserts()
+
+
+if __name__ == "__main__":
+    main()

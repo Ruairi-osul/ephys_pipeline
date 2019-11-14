@@ -1,0 +1,80 @@
+[
+    {
+        "meta": {
+            "recording_name": "ESHOCK_01",
+            "experiment_name": "ESHOCK",
+            "experimental_group_name": "shock",
+            "date": "2019-02-28"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_files": [
+            {
+                "block_name": "pre",
+                "dir_name": "ESHOCK_01_2019-02-28_14-09-37_PRE"
+            },
+            {
+                "block_name": "shock",
+                "dir_name": "ESHOCK_01_2019-02-28_15-10-42_SHOCK"
+            }
+        ],
+        "dat_file": "ESHOCK_01/ESHOCK_01.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH15"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH31"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "ADC8"
+            }
+        ]
+    }
+]

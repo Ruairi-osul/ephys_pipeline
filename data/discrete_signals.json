@@ -1,0 +1,10 @@
+[
+    {
+        "signal_name": "eshock",
+        "description": "times at which eshock was administered"
+    },
+    {
+        "signal_name": "opto",
+        "description": "timepoints at which the opto was on"
+    }
+]

@@ -1,0 +1,42 @@
+[
+    {
+        "signal_type": "eeg",
+        "recording_location": "frontal left",
+        "signal_name": "eeg_fr"
+    },
+    {
+        "signal_type": "eeg",
+        "recording_location": "frontal right",
+        "signal_name": "eeg_fl"
+    },
+    {
+        "signal_type": "eeg",
+        "recording_location": "occipital",
+        "signal_name": "eeg_occ"
+    },
+    {
+        "signal_type": "lfp",
+        "recording_location": "upper right",
+        "signal_name": "lfp_ur"
+    },
+    {
+        "signal_type": "lfp",
+        "recording_location": "lower right",
+        "signal_name": "lfp_lr"
+    },
+    {
+        "signal_type": "lfp",
+        "recording_location": "upper left",
+        "signal_name": "lfp_ul"
+    },
+    {
+        "signal_type": "lfp",
+        "recording_location": "lower left",
+        "signal_name": "lfp_ll"
+    },
+    {
+        "signal_type": "temperature",
+        "recording_location": null,
+        "signal_name": "temperature"
+    }
+]

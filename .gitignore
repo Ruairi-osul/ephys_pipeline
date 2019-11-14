@@ -1,0 +1,11 @@
+venv
+.vscode
+__pycache__
+*.egg*
+*.ipynb
+test_*
+.mypy*
+test.txt
+db_setup.sh
+sample_*.json
+.env
