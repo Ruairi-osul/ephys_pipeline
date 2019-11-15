@@ -19,7 +19,7 @@ class Processor:
         pass
 
     @staticmethod
-    def _add_filename(continuous_dir, ch="CH1", ch_prefix="120", sep="_"):
+    def _add_filename(continuous_dir, ch="CH3", ch_prefix="120", sep="_"):
         filename = make_filename(ch_prefix, ch, ext=".continuous", sep=sep)
         return continuous_dir.joinpath(filename)
 
@@ -45,6 +45,14 @@ class Processor:
                 continue
             try:
                 data = loadContinuous(continuous_file["file_name"])["data"].flatten()
+            except PermissionError:
+                print(
+                    (
+                        f"Unable to open block {continuous_file['file_name']}."
+                        "Change file permissions"
+                    )
+                )
+                raise
             except:
                 # TODO deal with this error for currupt data
                 continue
@@ -66,7 +74,7 @@ class BlockTimesProcessor(Processor):
     def __init__(self):
         pass
 
-    def get_block_times(self, continuous_dirs: dict, ch_prefix: str, blocks: list):
+    def get_block_lengths(self, continuous_dirs: dict, ch_prefix: str, blocks: list):
         # continuous_files = CH1 for each
         for continuous_dir in continuous_dirs:
             continuous_dir["file_name"] = self._add_filename(
@@ -74,6 +82,7 @@ class BlockTimesProcessor(Processor):
             )
         block_lengths: list = []
 
+        total_length: int = 0
         for block in blocks:
             try:
                 continuous_dir = next(
@@ -84,12 +93,19 @@ class BlockTimesProcessor(Processor):
                 continue
             try:
                 data = loadContinuous(continuous_dir["file_name"])["data"].flatten()
-            except:
+            except Exception as e:
+                print(e)
                 # TODO deal with this error for currupt data
                 continue
 
             block_length = len(data)
-            block_lengths.append({"block_name": block, "block_length": block_length})
+            block_lengths.append(
+                {
+                    "block_name": block,
+                    "block_length": block_length,
+                    "block_start": total_length,
+                }
+            )
 
         return block_lengths
 
@@ -128,16 +144,51 @@ class DiscreteSignalProcessor(Processor):
         # TODO
         pass
 
-    def events_from_discrete(
+    def events_from_digital(
         self,
         continuous_files: list,
-        data_channel: str,
         blocks: list,
-        block_starts: dict,
+        block_lengths: dict,
         tmp_dir,
-        num_skip: int,
+        ch_prefix: str,
+        num_skip: int = 4,
+        ch="CH3",
     ):
         # TODO
+        events_by_block: list = []
+        for block in blocks:
+            try:
+                continuous_dir = next(
+                    filter(lambda x: x["block_name"] == block, continuous_files)
+                )
+            except StopIteration:
+                pass
+            dummy_channel = continuous_dir["file_name"].parent.joinpath(
+                make_filename(ch_prefix, ch, sep="_", ext=".continuous")
+            )
+            first_time_stamp = loadContinuous(dummy_channel)["timestamps"][0]
+            block_start = next(
+                filter(lambda x: x["block_name"] == block, block_lengths)
+            )["block_start"]
+            timestamp_correction = first_time_stamp - block_start
+            events = loadEvents(continuous_dir["file_name"])
+            df = pd.DataFrame(
+                {
+                    "channel": events["channel"],
+                    "timestamps": events["timestamps"],
+                    "eventid": events["eventId"],
+                }
+            )
+            df = df.assign(
+                timestamps=lambda x: x["timestamps"] + timestamp_correction
+            ).pipe(
+                lambda x: x.iloc[num_skip:, :]
+            )  # skip the first couple of trials
+            if df:
+                events_by_block.append(df["timestamps"].values.astype(int))
+
+        events = np.concatenate(events_by_block)
+        return events
         # for each block:
         #   if there is continuous file for this block:
         #       load the data channel

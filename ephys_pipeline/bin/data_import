@@ -47,7 +47,7 @@ def main():
         action="store_true",
         help="use this flag if inserting discrete signals",
     )
-    parser.add_argument("-s", "--duplicates", action="skip", default=True)
+    parser.add_argument("-s", "--duplicates", default="skip")
     parser.add_argument("-i", "--input", help="input json")
 
     args = parser.parse_args()

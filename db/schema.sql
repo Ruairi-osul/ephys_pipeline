@@ -70,7 +70,7 @@ CREATE TABLE analog_signals (
     id INT AUTO_INCREMENT PRIMARY KEY,
     signal_type VARCHAR(150) NOT NULL,
     recording_location VARCHAR(150),
-    signal_name VARCHAR(150)
+    signal_name VARCHAR(150) UNIQUE NOT NULL
 );
 ALTER TABLE `analog_signals` 
     ADD UNIQUE `unique_sites`(`signal_type`, `recording_location`);

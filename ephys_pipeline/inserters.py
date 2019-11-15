@@ -29,8 +29,9 @@ class Inserter:
         _prep_db(self)
         session = self.Session()
         try:
-            self._duplicate_check()
-        except DuplicateError:
+            self._duplicate_check(session=session)
+        except DuplicateError as e:
+            print(e)
             if self.duplicates == "skip":
                 session.rollback()
                 return
@@ -38,7 +39,7 @@ class Inserter:
                 session.rollback()
                 raise
             elif self.duplicates == "overwrite":
-                self._overwrite()
+                self._overwrite(session=session)
                 session.flush()
         try:
             for method in self.insert_methods:
@@ -69,7 +70,7 @@ class ChanMapInserter(Inserter):
         query = session.query(self.orm.chan_maps).filter(
             self.orm.chan_maps.chan_map_name == self.meta["chan_map_name"]
         )
-        if not bool(query.scalar()):
+        if bool(query.scalar()):
             raise DuplicateError(f"Duplicate found:\t{self.meta['chan_map_name']}")
 
     def _overwrite(self, session):
@@ -126,14 +127,14 @@ class ExperimentInserter(Inserter):
 
     def _duplicate_check(self, session):
         query = session.query(self.orm.experiments).filter(
-            self.orm.experi.chan_map_name == self.meta["chan_map_name"]
+            self.orm.experiments.experiment_name == self.meta["experiment_name"]
         )
-        if not bool(query.scalar()):
-            raise DuplicateError(f"Duplicate found:\t{self.meta['chan_map_name']}")
+        if bool(query.scalar()):
+            raise DuplicateError(f"Duplicate found:\t{self.meta['experiment_name']}")
 
     def _overwrite(self, session):
-        query = session.query(self.orm.chan_maps).filter(
-            self.orm.chan_maps.chan_map_name == self.meta["chan_map_name"]
+        query = session.query(self.orm.experiments).filter(
+            self.orm.experiments.experiment_name == self.meta["experiment_name"]
         )
         query.delete()
 
@@ -189,6 +190,19 @@ class AnalogSignalInserter(Inserter):
         super().__init__()
         self.insert_methods.append(self._insert_analog_signal)
 
+    def _duplicate_check(self, session):
+        query = session.query(self.orm.analog_signals).filter(
+            self.orm.analog_signals.signal_name == self.signal_name
+        )
+        if bool(query.scalar()):
+            raise DuplicateError(f"Duplicate found:\t{self.signal_name}")
+
+    def _overwrite(self, session):
+        query = session.query(self.orm.experiments).filter(
+            self.orm.analog_signals.signal_name == self.signal_name
+        )
+        query.delete()
+
     def _insert_analog_signal(self, session):
         new_analog_signal = self.orm.analog_signals(
             signal_type=self.signal_type,
@@ -210,6 +224,19 @@ class DiscreteSignalInserter(Inserter):
         super().__init__()
         self.insert_methods.append(self._insert_discrete_signal)
 
+    def _duplicate_check(self, session):
+        query = session.query(self.orm.discrete_signals).filter(
+            self.orm.discrete_signals.signal_name == self.signal_name
+        )
+        if bool(query.scalar()):
+            raise DuplicateError(f"Duplicate found:\t{self.signal_name}")
+
+    def _overwrite(self, session):
+        query = session.query(self.orm.experiments).filter(
+            self.orm.discrete_signals.signal_name == self.signal_name
+        )
+        query.delete()
+
     def _insert_discrete_signal(self, session):
         new_discrete_signal = self.orm.discrete_signals(
             signal_name=self.signal_name, description=self.description
@@ -224,6 +251,12 @@ class RecordingSessionInserter(Inserter):
 
     def __init__(self):
         pass
+
+    def _duplicate_check(self, session):
+        raise NotImplementedError()
+
+    def _overwrite(self, session):
+        raise NotImplementedError()
 
     def make_paths_absolute(self, session):
         pass

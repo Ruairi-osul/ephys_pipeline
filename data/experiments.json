@@ -1,0 +1,110 @@
+[
+    {
+        "meta": {
+            "experiment_name": "ESHOCK",
+            "description": "Terminal probe recording in the DRN including a footshock stimulus"
+        },
+        "paths": {
+            "exp_home_dir": "ESHOCK",
+            "continuous_home_dir": "continuous",
+            "dat_file_dir": "probe_dat_files",
+            "extracted_dir": "extracted",
+            "tmp_dir": "tmp"
+        },
+        "experimental_groups": [
+            {
+                "group_name": "sham",
+                "description": "30 minutes of baseline followed by 30 minutes of sham stimululation"
+            },
+            {
+                "group_name": "shock",
+                "description": "30 minutes of baseline followed by 30 minutes of shock stimulation at 5mA"
+            }
+        ],
+        "experimental_blocks": [
+            {
+                "block_name": "pre",
+                "block_index": 1,
+                "ideal_length_min": 60,
+                "block_description": "baseline period preshock"
+            },
+            {
+                "block_name": "shock",
+                "block_index": 2,
+                "ideal_length_min": 30,
+                "block_description": "shock or sham period. 2 second inter shock interval"
+            },
+            {
+                "block_name": "post_shock",
+                "block_index": 3,
+                "ideal_length_min": 10,
+                "block_description": "10 minute period after shock period and before dpat"
+            },
+            {
+                "block_name": "dpat",
+                "block_index": 4,
+                "ideal_length_min": 20,
+                "block_description": "dpat was administered and spontaneous firing recorded for 20 mins"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "experiment_name": "OPTO",
+            "description": "Terminal probe recording in the PFC with DRN 5HT opto stimulation"
+        },
+        "paths": {
+            "exp_home_dir": "OPTO",
+            "continuous_home_dir": "continuous",
+            "dat_file_dir": "probe_dat_files",
+            "extracted_dir": "extracted",
+            "tmp_dir": "tmp"
+        },
+        "experimental_groups": [
+            {
+                "group_name": "SERT-CHR2",
+                "description": "SERT-cre mice which were injected with cre-dependent Channel rhodopsin. DRN 5HT neurons should be excited by the laser."
+            },
+            {
+                "group_name": "SERT-MCHERRY",
+                "description": "SERT-cre mice which were injected with the cre-dependent control flourophore mCherry. DRN 5HT neurons not should be excited by the laser."
+            },
+            {
+                "group_name": "SERT-VGLUT-KO-CHR2",
+                "description": "SERT-cre mice which have a conditional knock out of vGLUT3 and which were injected with CHR2. DRN 5HT neurons not should be excited by the laser but unable to release glutamate."
+            }
+        ],
+        "experimental_blocks": [
+            {
+                "block_name": "pre",
+                "block_index": 1,
+                "ideal_length_min": 20,
+                "block_description": "baseline period"
+            },
+            {
+                "block_name": "opto_1hz",
+                "block_index": 2,
+                "ideal_length_min": 20,
+                "block_description": "shock or sham period. 2 second inter shock interval"
+            },
+            {
+                "block_name": "post_opto_1hz",
+                "block_index": 3,
+                "ideal_length_min": 20,
+                "block_description": "10 minute period after shock period and before dpat"
+            },
+            {
+                "block_name": "opto_20hz",
+                "block_index": 4,
+                "ideal_length_min": 20,
+                "block_description": "dpat was administered and spontaneous firing recorded for 20 mins"
+            },
+            {
+                "block_name": "post_opto_20hz",
+                "block_index": 5,
+                "ideal_length_min": 20,
+                "block_description": "dpat was administered and spontaneous firing recorded for 20 mins"
+            }
+        ]
+    }
+]

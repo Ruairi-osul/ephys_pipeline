@@ -1,11 +1,13 @@
 from .utils import _prep_db, make_filename
-import dotenv
+from .errors import DuplicateError
 from .processors import (
     AnalogSignalProcessor,
     DiscreteSignalProcessor,
     BlockTimesProcessor,
 )
 from pathlib import Path
+import dotenv
+import json
 import os
 import pdb
 from pyarrow.feather import write_feather
@@ -22,6 +24,7 @@ class RecordingSession:
         discrete_signals: dict,
         continuous_files: dict,
         dat_file: str,
+        duplicates: str,
     ):
         self.meta = meta
         self.config = config
@@ -29,8 +32,22 @@ class RecordingSession:
         self.discrete_signals = discrete_signals
         self.continuous_files = continuous_files
         self.dat_file = dat_file
+        self.duplicates = duplicates
         self.paths: dict = {}
         _prep_db(self)
+
+    def _duplicate_check(self, session):
+        query = session.query(self.orm.recording_sessions).filter(
+            self.orm.recording_sessions.session_name == self.meta["session_name"]
+        )
+        if query.scalar():
+            raise DuplicateError(f"Duplicate Found:\t{self.meta['session_name']}")
+
+    def _overwrite(self, session):
+        query = session.query(self.orm.recording_sessions).filter(
+            self.orm.recording_sessions.session_name == self.meta["session_name"]
+        )
+        query.delete()
 
     def _make_dirs_absolute(self, session):
         """
@@ -89,8 +106,13 @@ class RecordingSession:
             path.mkdir(exist_ok=True)
 
     def _set_blocks(self, session):
-        blocks = session.query(self.orm.experimental_blocks.block_name).order_by(
-            self.orm.experimental_blocks.block_index
+        blocks = (
+            session.query(self.orm.experimental_blocks.block_name)
+            .join(self.orm.experiments)
+            .filter(
+                self.orm.experiments.experiment_name == self.meta["experiment_name"]
+            )
+            .order_by(self.orm.experimental_blocks.block_index)
         )
         self.blocks = list(map(lambda x: x[0], blocks))
 
@@ -99,14 +121,30 @@ class RecordingSession:
         - adds a continuous_files attribute to self.analog_signals and self.digital_signals
         - continuous_files is a list of dictionaries with fields block_name and file_name
         """
-        for signal_group in (self.analog_signals, self.discrete_signals):
-            for signal in signal_group:
-                signal["continuous_files"]: list = []
-                continuous_filename = make_filename(
-                    self.config["continuous_prefix"],
-                    signal["channel"],
-                    ext=".continuous",
+        for signal in self.analog_signals:
+            signal["continuous_files"]: list = []
+            continuous_filename = make_filename(
+                self.config["continuous_prefix"], signal["channel"], ext=".continuous",
+            )
+            for file in self.continuous_files:
+                # individual continuous files for blocks
+                signal["continuous_files"].append(
+                    {
+                        "file_name": file["dir_name"].joinpath(continuous_filename),
+                        "block_name": file["block_name"],
+                    }
                 )
+        for signal in self.discrete_signals:
+            signal["continuous_files"]: list = []
+            if signal.get("from_analog") or signal.get("from_digital"):
+                if signal.get("from_analog"):
+                    continuous_filename: str = make_filename(
+                        self.config["continuous_prefix"],
+                        signal["channel"],
+                        ext=".continuous",
+                    )
+                elif signal.get("from_digital"):
+                    continuous_filename: str = signal["channel"]
                 for file in self.continuous_files:
                     # individual continuous files for blocks
                     signal["continuous_files"].append(
@@ -115,6 +153,10 @@ class RecordingSession:
                             "block_name": file["block_name"],
                         }
                     )
+            elif signal.get("from_manual"):
+                signal["data"] = self.paths["extracted"].joinpath(
+                    signal["is_manual"]["path"]
+                )
 
     def process_analog_signals(self):
         """
@@ -141,7 +183,7 @@ class RecordingSession:
             )
             signal["downsampled_path"] = self.paths["extracted_dir"].joinpath(
                 make_filename(
-                    self.meta["recording_name"],
+                    self.meta["session_name"],
                     signal["signal_name"],
                     "downsampled",
                     ext=".feather",
@@ -150,7 +192,7 @@ class RecordingSession:
 
             signal["stft_path"] = self.paths["extracted_dir"].joinpath(
                 make_filename(
-                    self.meta["recording_name"],
+                    self.meta["session_name"],
                     signal["signal_name"],
                     "stft",
                     ext=".feather",
@@ -159,7 +201,6 @@ class RecordingSession:
 
             write_feather(df=downsampled_data, dest=signal["downsampled_path"])
             write_feather(df=stft, dest=signal["stft_path"])
-        pdb.set_trace()
 
     def process_discrete_signals(self):
         for signal in self.discrete_signals:
@@ -170,27 +211,30 @@ class RecordingSession:
                     tmp_dir=self.paths["tmp_dir"],
                     blocks=self.blocks,
                 )
+            elif signal.get("from_digital"):
+                events = processor.events_from_digital(
+                    continuous_files=signal["continuous_files"],
+                    blocks=self.blocks,
+                    block_lengths=self.block_lengths,
+                    tmp_dir=self.paths["tmp_dir"],
+                    ch_prefix=self.config["continuous_prefix"],
+                )
             elif signal.get("is_manual"):
-                events = np.load(signal["is_manual"]["path"])
-            elif signal.get("from_events"):
-                pass
-            # processor = DiscreteSignalProcessor()
-            # if "ADC" in discrete signal.channel:
-            #   events = processor.get_events_from_analog()
-            # elif "CH" in d_signal.channel:
-            #   events = processor.get_events_from_discrete()
-            #
-            # save events(fname)
-            # d_signal["events_path"] = fname
+                continue
+
             pass
 
     def process_block_lengths(self):
         processor = BlockTimesProcessor()
-        block_lengths = processor.process_block_lengths()
-        fname = self.paths["extracted_dir"].joinpath(
-            make_filename(self.meta["recording_name"], "block_lengths", ext=".json",)
+        block_lengths = processor.get_block_lengths(
+            continuous_dirs=self.continuous_files,
+            ch_prefix=self.config["continuous_prefix"],
+            blocks=self.blocks,
         )
-        with open(fname) as f:
+        fname = self.paths["extracted_dir"].joinpath(
+            make_filename(self.meta["session_name"], "block_lengths", ext=".json",)
+        )
+        with open(fname, "w") as f:
             json.dumps(block_lengths)
         self.block_lengths = block_lengths
         self.paths["block_lengths"] = fname
@@ -201,15 +245,28 @@ class RecordingSession:
     def process_data(self):
         session = self.Session()
         try:
+            self._duplicate_check(session=session)
+        except DuplicateError as e:
+            print(e)
+            if self.duplicates == "skip":
+                session.rollback()
+                return
+            elif self.duplicates == "fail":
+                session.rollback()
+                raise
+            elif self.duplicates == "overwrite":
+                self._overwrite(session=session)
+                session.flush()
+        try:
             self._make_dirs_absolute(session=session)
             self._check_tmp_extracted()
             self._mkdirs()
             self._get_signal_continuous_files()
             self._set_blocks(session=session)
             self.process_block_lengths()
-            self.process_analog_signals()
-            pdb.set_trace()
+            # self.process_analog_signals()
             self.process_discrete_signals()
+            pdb.set_trace()
             # self.porcessing_methods.append(self.process_block_lengths)
             # self.porcessing_methods.append(self.process_spikes)
             session.commit()
