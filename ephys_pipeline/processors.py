@@ -97,9 +97,7 @@ class AnalogSignalProcessor:
             except KeyError:
                 logger.debug(f"{self}.downsample: Data unavailible for {block}")
                 continue
-            downsampled_data = decimate(
-                signal_data, q=downsampling_factor, zero_phase="fir"
-            )
+            downsampled_data = decimate(signal_data, q=downsampling_factor, ftype="fir")
             tmp_fname = tmp_dir.joinpath(
                 make_filename(asignal.signal_name, block, ext=".npy")
             )
@@ -108,7 +106,7 @@ class AnalogSignalProcessor:
         logger.debug(f"{self}: downsample: Concatenating")
         data = np.concatenate([np.load(file) for file in tmp_files])
         time = np.cumsum(np.ones((1, len(data))).flatten() * sampling_period)
-        output = pd.DataFrame({"time": time, "value": data})
+        output = pd.DataFrame({"timepoint_s": time, "voltage": data})
         for file in tmp_files:
             os.remove(file)
         return output
@@ -128,7 +126,7 @@ class AnalogSignalProcessor:
         return (
             df2.reset_index()
             .rename(columns={"index": "frequency"})
-            .melt(id_vars="frequency", var_name="timepoint", value_name="value")
+            .melt(id_vars="frequency", var_name="timepoint", value_name="fft_value")
         )
 
     def __repr__(self):
@@ -145,7 +143,7 @@ class SpikesProcessor:
         - is_single_unit = True for SU, Flase for MUA
         - discards noise clusters
         """
-        pdb.set_trace()
+        # pdb.set_trace()
         cluster_groups = pd.read_csv(
             kilosort_dir.joinpath("cluster_groups.csv"), sep="\t"
         )
@@ -153,7 +151,7 @@ class SpikesProcessor:
 
         if len(cluster_groups) == 0:
             raise NoNeuronsError("No neurons found")
-        pdb.set_trace()
+        # pdb.set_trace()
         pass
 
     def get_waveforms(self):

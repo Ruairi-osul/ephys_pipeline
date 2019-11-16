@@ -1,8 +1,11 @@
 from .utils import _prep_db
 from .errors import DuplicateError
-import dotenv
 from .logger import logger
-
+import pandas as pd
+import numpy as np
+import dotenv
+import pdb
+import os
 
 dotenv.load_dotenv()
 
@@ -26,15 +29,18 @@ class Inserter:
 
     def run_inserts(self):
         _prep_db(self)
+        logger.debug(f"{self}: starting insert transaction")
         session = self.Session()
         try:
             self._duplicate_check(session=session)
         except DuplicateError as e:
             logger.info(f"{e}:\t\t{self}")
             if self.duplicates == "skip":
+                logger.debug("rolling back transaction")
                 session.rollback()
                 return
             elif self.duplicates == "fail":
+                logger.debug("rolling back transaction")
                 session.rollback()
                 raise
             elif self.duplicates == "overwrite":
@@ -43,11 +49,16 @@ class Inserter:
         try:
             for method in self.insert_methods:
                 method(session=session)
-                session.commit()
+
         except:
             session.rollback()
+            logger.debug("rolling back transaction")
             raise
+        else:
+            logger.debug("commiting transaction")
+            session.commit()
         finally:
+            logger.debug("closing transaction")
             session.close()
 
 
@@ -276,44 +287,149 @@ class RecordingSessionInserter(Inserter):
     - Inserts a recording session
     """
 
-    def __init__(self):
-        pass
+    def __init__(self, recording):
+        self.recording = recording
+        super().__init__()
+        self.insert_methods.append(self.insert_recording_session)
+        self.insert_methods.append(self.insert_session_block_times)
+        self.insert_methods.append(self.insert_recording_session_config)
+        self.insert_methods.append(self.insert_session_analog_signals)
+        self.insert_methods.append(self.insert_session_discrete_signals)
+        self.insert_methods.append(self.insert_analog_data)
+        self.insert_methods.append(self.insert_analog_signal_fft)
+        self.insert_methods.append(self.insert_discrete_signal_data)
+        self.insert_methods.append(self.insert_neurons)
+        self.insert_methods.append(self.insert_spike_times)
+        self.insert_methods.append(self.insert_waveforms)
 
     def _duplicate_check(self, session):
-        raise NotImplementedError()
+        pass
 
     def _overwrite(self, session):
-        raise NotImplementedError()
+        pass
 
     def insert_recording_session(self, session):
-        pass
+        logger.info(f"{self}: Inserting recording session")
+        new_recording = self.orm.recording_sessions(
+            session_name=self.recording.meta["session_name"],
+            session_date=self.recording.date,
+            start_time=self.recording.start_time,
+            group_id=self.recording.group_id,
+        )
+        session.add(new_recording)
+        session.flush()
+        self.db_recording = new_recording
 
     def insert_session_block_times(self, session):
-        pass
+        logger.info(f"{self}: Inserting block lengths")
+        for block in self.recording.block_lengths:
+            new_session_block_times = self.orm.recording_session_block_times(
+                recording_session_id=self.db_recording.id,
+                block_name=block["block_name"],
+                block_start_samples=block["block_start"],
+                block_end_samples=int(block["block_start"] + block["block_length"]),
+            )
+            session.add(new_session_block_times)
 
     def insert_recording_session_config(self, session):
-        pass
+        logger.info(f"{self}: Inserting session config")
+        for config_option, config_value in self.recording.config["probe"].items():
+            new_config = self.orm.recording_session_config(
+                recording_session_id=self.db_recording.id,
+                config=config_option,
+                config_value=config_value,
+            )
+            session.add(new_config)
 
     def insert_session_analog_signals(self, session):
-        pass
+        if self.recording.no_analog_signals:
+            logger.debug(f"{self}: No analog signals to insert")
+            return
+        logger.info(f"{self}: Inserting analog signals")
+        for signal in self.recording.analog_signals:
+            signal_id = (
+                session.query(self.orm.analog_signals)
+                .filter(self.orm.analog_signals.signal_name == signal.signal_name)
+                .one()
+                .id
+            )
+            new_signal = self.orm.session_analog_signals(
+                recording_session_id=self.db_recording.id, signal_id=signal_id
+            )
+            session.add(new_signal)
+            session.flush()
+            signal.id = new_signal.id
 
     def insert_session_discrete_signals(self, session):
-        pass
+        if self.recording.no_discrete_signals:
+            logger.debug(f"{self}: No discrete signals to insert")
+            return
+        logger.info(f"{self}: Inserting discrete signals")
+        for signal in self.recording.discrete_signals:
+            signal_id = (
+                session.query(self.orm.discrete_signals)
+                .filter(self.orm.discrete_signals.signal_name == signal.signal_name)
+                .one()
+                .id
+            )
+            new_signal = self.orm.session_discrete_signals(
+                recording_session_id=self.db_recording.id, discrete_signal_id=signal_id
+            )
+            session.add(new_signal)
+            session.flush()
+            signal.id = new_signal.id
 
     def insert_analog_data(self, session):
-        pass
+        if self.recording.no_analog_signals:
+            return
+        logger.info(f"{self}: Inserting analog data")
+        for signal in self.recording.analog_signals:
+            downsampled_data = pd.read_feather(
+                signal.processed_data["downsampled_data"]
+            )
+            downsampled_data["signal_id"] = signal.id
+            session.bulk_insert_mappings(
+                self.orm.analog_data, downsampled_data.to_dict(orient="records")
+            )
+            os.remove(signal.processed_data["downsampled_data"])
 
     def insert_analog_signal_fft(self, session):
-        pass
+        if self.recording.no_analog_signals:
+            return
+        logger.info(f"{self}: Inserting analog stft")
+        for signal in self.recording.analog_signals:
+            stft_data = pd.read_feather(signal.processed_data["stft_data"])
+            stft_data["signal_id"] = signal.id
+            session.bulk_insert_mappings(
+                self.orm.analog_signal_stft, stft_data.to_dict(orient="records")
+            )
+            os.remove(signal.processed_data["stft_data"])
 
     def insert_discrete_signal_data(self, session):
-        pass
+        if self.recording.no_discrete_signals:
+            return
+        logger.info(f"{self}: Inserting discrete data")
+        for signal in self.recording.discrete_signals:
+            data = np.load(signal.processed_data["data_path"])
+            data = pd.DataFrame({"signal_id": signal.id, "timpoint_sample": data})
+            session.bulk_insert_mappings(
+                self.orm.analog_signal_stft, data.to_dict(orient="records")
+            )
+            os.remove(signal.processed_data["data_path"])
 
     def insert_neurons(self, session):
-        pass
+        if self.recording.no_neurons:
+            logger.debug(f"{self}: No neurons to insert")
+            return
 
     def insert_spike_times(self, session):
-        pass
+        if self.recording.no_neurons:
+            return
 
     def insert_waveforms(self, session):
-        pass
+        if self.recording.no_neurons:
+            return
+
+    def __repr__(self):
+        return f"<RecordingInserter: {self.recording.meta['session_name']}"
+

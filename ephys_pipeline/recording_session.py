@@ -17,6 +17,7 @@ import numpy as np
 import pdb
 from pyarrow.feather import write_feather
 from .logger import logger
+from datetime import time, date
 
 dotenv.load_dotenv()
 
@@ -50,8 +51,26 @@ class RecordingSession:
         self.duplicates = duplicates  # TODO change to duplicate behaviour
         self.paths: dict = {}
         self.no_neurons = False
+        self.no_analog_signals = False
+        self.no_discrete_signals = False
 
         _prep_db(self)
+
+        logger.debug(f"{self}: starting recording session intialisation transaction")
+        session = self.Session()
+        try:
+            self.set_group_id(session=session)
+            self.set_chan_map_id(session=session)
+            self.set_experimental_paths(session=session)
+            self.set_experimental_blocks(session=session)
+            self.make_continuous_paths_absolute()
+        except:
+            logger.debug(f"{self}: rolling_back transaction")
+            session.rollback()
+            raise
+        finally:
+            logger.debug(f"{self}: closing transaction")
+            session.close()
 
     def _duplicate_check(self, session):
         logger.info(f"Checking for duplicates: {self}")
@@ -71,19 +90,34 @@ class RecordingSession:
 
     @property
     def date(self):
-        raise NotImplementedError
+        year, month, day = list(map(int, self.meta.get("date").split("-")))
+        return date(year, month, day)
 
     @property
     def start_time(self):
-        raise NotImplementedError
+        if self.meta.get("start_time") is not None:
+            h, m, s = list(map(int, self.meta.get("start_time").split("-")))
+            return time(h, m, s)
+        else:
+            return None
 
-    @property
-    def experimental_group(self):
-        raise NotImplementedError
+    def set_group_id(self, session):
+        group_name = self.meta["experimental_group_name"]
+        self.group_id = (
+            session.query(self.orm.experimental_groups)
+            .filter(self.orm.experimental_groups.group_name == group_name)
+            .one()
+            .id
+        )
 
-    @property
-    def chan_map(self):
-        raise NotImplementedError
+    def set_chan_map_id(self, session):
+        chan_map_name = self.config["probe"]["chan_map_name"]
+        self.chan_map_id = (
+            session.query(self.orm.chan_maps)
+            .filter(self.orm.chan_maps.chan_map_name == chan_map_name)
+            .one()
+            .id
+        )
 
     def set_experimental_paths(self, session):
         """
@@ -186,7 +220,7 @@ class RecordingSession:
                 blocks=self.blocks, asignal=signal, tmp_dir=self.paths["tmp_dir"],
             )
             stft = processor.stft(
-                downsampled_data["value"],
+                downsampled_data["voltage"],
                 fs=signal.desired_sampling_rate,
                 fft_window=4,
             )
@@ -230,7 +264,7 @@ class RecordingSession:
                 make_filename(self.meta["session_name"], signal.signal_name, ext=".npy")
             )
             np.save(events_path, events)
-            signal.processed_data["events"] = events_path
+            signal.processed_data["data_path"] = events_path
 
     def process_spikes(self):
         logger.info(f"Porcessing neurons: {self}")
@@ -257,14 +291,10 @@ class RecordingSession:
                 self._overwrite(session=session)
                 session.flush()
         try:
-            self.set_experimental_paths(session=session)
-            self.set_experimental_blocks(session=session)
-            self.make_continuous_paths_absolute()
-            # self.process_block_lengths()
-            # self.process_analog_signals()
-            # self.process_discrete_signals()
+            self.process_block_lengths()
+            self.process_analog_signals()
+            self.process_discrete_signals()
             self.process_spikes()
-            pdb.set_trace()
             logger.debug(f"{self}: commiting transaction")
             session.commit()
         except:

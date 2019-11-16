@@ -4,7 +4,8 @@
             "session_name": "ESHOCK_01",
             "experiment_name": "ESHOCK",
             "experimental_group_name": "shock",
-            "date": "2019-02-28"
+            "date": "2019-02-28",
+            "start_time": "14-09-37"
         },
         "config": {
             "probe": {

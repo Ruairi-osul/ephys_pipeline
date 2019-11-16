@@ -113,6 +113,7 @@ CREATE TABLE recording_session_config (
 CREATE TABLE recording_session_block_times (
     recording_session_id INT,
     block_name VARCHAR(200),
+    block_start_samples BIGINT,
     block_end_samples BIGINT,
     FOREIGN KEY (recording_session_id)
         REFERENCES recording_sessions(id)
@@ -122,7 +123,7 @@ CREATE TABLE recording_session_block_times (
 
 
 CREATE TABLE session_analog_signals (
-    id INT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     recording_session_id INT,
     signal_id INT,
     FOREIGN KEY (recording_session_id)
@@ -202,12 +203,11 @@ CREATE TABLE analog_data (
 
 CREATE TABLE discrete_signal_data (
     signal_id INT,
-    event_index BIGINT,
-    val VARCHAR(250),
+    timpoint_sample BIGINT,
     FOREIGN KEY (signal_id)
         REFERENCES session_discrete_signals(id)
         ON DELETE CASCADE,
-    PRIMARY KEY (signal_id, event_index)
+    PRIMARY KEY (signal_id, timpoint_sample)
 );
 
 
@@ -221,9 +221,9 @@ CREATE TABLE neuron_ifr (
     PRIMARY KEY (neuron_id, timepoint_s)
 );
 
-CREATE TABLE analog_signal_fft (
-    signal_id INT,
-    timepoint_s DOUBLE,
+CREATE TABLE analog_signal_stft (
+    signal_id INT NOT NULL,
+    timepoint_s DOUBLE NOT NULL,
     fft_value DOUBLE,
     FOREIGN KEY (signal_id)
         REFERENCES session_analog_signals(id)
