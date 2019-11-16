@@ -151,6 +151,7 @@ CREATE TABLE session_discrete_signals (
 CREATE TABLE neurons (
     id INT AUTO_INCREMENT PRIMARY KEY,
     recording_session_id INT,
+    cluster_id INT, 
     is_single_unit INT NOT NULL,
     FOREIGN KEY (recording_session_id)
         REFERENCES recording_sessions(id)
@@ -199,7 +200,7 @@ CREATE TABLE analog_data (
 );
 
 
-CREATE TABLE discrete_channel_data (
+CREATE TABLE discrete_signal_data (
     signal_id INT,
     event_index BIGINT,
     val VARCHAR(250),
@@ -220,7 +221,7 @@ CREATE TABLE neuron_ifr (
     PRIMARY KEY (neuron_id, timepoint_s)
 );
 
-CREATE TABLE analog_channel_fft (
+CREATE TABLE analog_signal_fft (
     signal_id INT,
     timepoint_s DOUBLE,
     fft_value DOUBLE,

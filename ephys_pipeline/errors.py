@@ -4,3 +4,11 @@ class Error(Exception):
 
 class DuplicateError(Error):
     pass
+
+
+class NoNeuronsError(Error):
+    pass
+
+
+class CurruptDataError(Error):
+    pass

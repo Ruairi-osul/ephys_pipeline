@@ -3,6 +3,7 @@ from .inserters import (
     ExperimentInserter,
     AnalogSignalInserter,
     DiscreteSignalInserter,
+    RecordingSessionInserter,
 )
 from .recording_session import RecordingSession
 from .processors import AnalogSignalProcessor

@@ -11,7 +11,7 @@ Usage:
     data = OpenEphys.load(pathToFile) # returns a dict with data, timestamps, etc.
 
 """
-
+from .errors import CurruptDataError
 import os
 import numpy as np
 import scipy.signal
@@ -132,8 +132,6 @@ def loadContinuous(filepath, dtype=float):
         np.int16,
     ), "Invalid data type specified for loadContinous, valid types are float and np.int16"
 
-    print("Loading continuous data...")
-
     ch = {}
 
     # read in the data
@@ -144,7 +142,7 @@ def loadContinuous(filepath, dtype=float):
     # calculate number of samples
     recordBytes = fileLength - NUM_HEADER_BYTES
     if recordBytes % RECORD_SIZE != 0:
-        raise Exception(
+        raise CurruptDataError(
             "File size is not consistent with a continuous file: may be corrupt"
         )
     nrec = recordBytes // RECORD_SIZE

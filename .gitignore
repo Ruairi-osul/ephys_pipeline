@@ -9,3 +9,4 @@ test.txt
 db_setup.sh
 sample_*.json
 .env
+*.log

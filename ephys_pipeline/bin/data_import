@@ -7,12 +7,11 @@ from ephys_pipeline import (
     AnalogSignalInserter,
     DiscreteSignalInserter,
     RecordingSession,
+    RecordingSessionInserter,
 )
+from ephys_pipeline.errors import DuplicateError
+from ephys_pipeline.logger import logger
 import argparse
-import pdb
-
-# TODO warn users when input analog signals are not equal to inserted analog signals
-# TODO write what to do on duplicates
 
 
 def main():
@@ -88,7 +87,15 @@ def main():
     elif args.recording_insert:
         for params in input_json:
             session = RecordingSession(**params, duplicates=args.duplicates)
-            session.process_data()
+            try:
+                session.process_data()
+            except DuplicateError:
+                if args.duplicates == "fail":
+                    raise
+                elif args.duplicates == "skip":
+                    logger.info(f"{session}: duplicate identified, skiping")
+                    continue
+            inserter = RecordingSessionInserter(session)
 
     # recording_session = RecordingSession(**x)
     # recording_session.process_data(session=session)

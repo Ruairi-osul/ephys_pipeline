@@ -1,7 +1,7 @@
 [
     {
         "meta": {
-            "recording_name": "ESHOCK_01",
+            "session_name": "ESHOCK_01",
             "experiment_name": "ESHOCK",
             "experimental_group_name": "shock",
             "date": "2019-02-28"
@@ -13,7 +13,7 @@
             },
             "continuous_prefix": "120"
         },
-        "continuous_files": [
+        "continuous_blocks": [
             {
                 "block_name": "pre",
                 "dir_name": "ESHOCK_01_2019-02-28_14-09-37_PRE"

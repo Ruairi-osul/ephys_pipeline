@@ -1,257 +1,166 @@
+from .logger import logger
+from .errors import NoNeuronsError
+from .utils import make_filename
 from scipy.signal import decimate, stft
-from pathlib import Path
 import pandas as pd
 import numpy as np
-from .continuous_tools import loadContinuous, loadEvents
-import pdb
-from pyarrow.feather import write_feather
-from .utils import make_filename
 import os
-from .utils import make_filename
+import pdb
 
 
-class Processor:
-    """
-    - base class for processors
-    """
-
+class BlockTimesProcessor:
     def __init__(self):
         pass
 
-    @staticmethod
-    def _add_filename(continuous_dir, ch="CH3", ch_prefix="120", sep="_"):
-        filename = make_filename(ch_prefix, ch, ext=".continuous", sep=sep)
-        return continuous_dir.joinpath(filename)
-
-    def load_apply_concat(
-        self, blocks: list, continuous_files: list, func, tmp_dir, func_kwargs=None,
-    ):
-        """
-        - load in continuous files in order
-        - apply a func with option to specify args
-        - save to a tmp file
-        - concat and return the results
-        """
-        if func_kwargs is None:
-            func_kwargs = {}
-        tmp_files: list = []
-        for block in blocks:
-            try:
-                continuous_file = next(
-                    filter(lambda x: x["block_name"] == block, continuous_files)
-                )
-            except StopIteration:
-                # data unavailible
-                continue
-            try:
-                data = loadContinuous(continuous_file["file_name"])["data"].flatten()
-            except PermissionError:
-                print(
-                    (
-                        f"Unable to open block {continuous_file['file_name']}."
-                        "Change file permissions"
-                    )
-                )
-                raise
-            except:
-                # TODO deal with this error for currupt data
-                continue
-            tmp_filename = tmp_dir.joinpath(make_filename(block, ext=".npy"))
-            data = func(data, **func_kwargs)
-            np.save(file=tmp_filename, arr=data)
-            tmp_files.append(tmp_filename)
-
-        data = [np.load(tmp_file) for tmp_file in tmp_files]
-        data = np.concatenate(data)
-
-        for tmp_file in tmp_files:
-            os.remove(tmp_file)
-
-        return data
-
-
-class BlockTimesProcessor(Processor):
-    def __init__(self):
-        pass
-
-    def get_block_lengths(self, continuous_dirs: dict, ch_prefix: str, blocks: list):
-        # continuous_files = CH1 for each
-        for continuous_dir in continuous_dirs:
-            continuous_dir["file_name"] = self._add_filename(
-                continuous_dir=continuous_dir["dir_name"], ch_prefix=ch_prefix
-            )
+    def get_block_lengths(self, continuous_blocks, blocks):
         block_lengths: list = []
-
-        total_length: int = 0
+        total_time: int = 0
         for block in blocks:
+            logger.debug(f"Processing {block}")
             try:
-                continuous_dir = next(
-                    filter(lambda x: x["block_name"] == block, continuous_dirs)
+                continuous_block = next(
+                    filter(lambda x: x.block_name == block, continuous_blocks)
                 )
+                logger.debug(f"{self}.get_block_lengths: {continuous_block}")
             except StopIteration:
-                # data unavailible
+                logger.debug(
+                    f"{self}.get_block_lengths: No data availible for block {block}"
+                )
                 continue
-            try:
-                data = loadContinuous(continuous_dir["file_name"])["data"].flatten()
-            except Exception as e:
-                print(e)
-                # TODO deal with this error for currupt data
-                continue
-
+            data = continuous_block.load_continuous_channel()
             block_length = len(data)
             block_lengths.append(
                 {
-                    "block_name": block,
                     "block_length": block_length,
-                    "block_start": total_length,
+                    "block_name": continuous_block.block_name,
+                    "block_start": total_time,
                 }
             )
-
+            total_time += block_length
         return block_lengths
 
+    def __repr__(self):
+        return f"<BlockTimesProcessor>"
 
-class DiscreteSignalProcessor(Processor):
+
+class DiscreteSignalProcessor:
     def __init__(self):
         pass
 
-    @staticmethod
-    def _get_events_from_analog(arr, threshold: int = 3, num_skip: int = 5):
-        data = np.diff(arr)
-        data = np.argwhere(data > threshold).flatten()
-        return data[num_skip:]
-
-    def events_from_analog(
-        self,
-        continuous_files: list,
-        blocks: list,
-        tmp_dir,
-        threshold: int = 2,
-        num_skip: int = 5,
+    def process_events(
+        self, blocks: list, discrete_signal, block_lengths, tmp_dir,
     ):
-        """ 
-        - Given paths to a continuous file containing 
-          events in analog format, returns the events
         """
-
-        return self.load_apply_concat(
-            blocks=blocks,
-            continuous_files=continuous_files,
-            tmp_dir=tmp_dir,
-            func=self._get_events_from_analog,
-        )
-
-    def _get_block_starts(continuous_file):
-        # TODO
-        pass
-
-    def events_from_digital(
-        self,
-        continuous_files: list,
-        blocks: list,
-        block_lengths: dict,
-        tmp_dir,
-        ch_prefix: str,
-        num_skip: int = 4,
-        ch="CH3",
-    ):
-        # TODO
-        events_by_block: list = []
+        """
+        tmp_files: list = []
         for block in blocks:
+            logger.debug(f"{self}.process_events: Processing {block}")
             try:
-                continuous_dir = next(
-                    filter(lambda x: x["block_name"] == block, continuous_files)
+                block_length = next(
+                    filter(lambda x: x["block_name"] == block, block_lengths)
                 )
             except StopIteration:
-                pass
-            dummy_channel = continuous_dir["file_name"].parent.joinpath(
-                make_filename(ch_prefix, ch, sep="_", ext=".continuous")
+                logger.debug(f"No data availible for block: {block}")
+                continue
+            signal_data = discrete_signal.load(
+                block_name=block, block_start=block_length["block_start"]
             )
-            first_time_stamp = loadContinuous(dummy_channel)["timestamps"][0]
-            block_start = next(
-                filter(lambda x: x["block_name"] == block, block_lengths)
-            )["block_start"]
-            timestamp_correction = first_time_stamp - block_start
-            events = loadEvents(continuous_dir["file_name"])
-            df = pd.DataFrame(
-                {
-                    "channel": events["channel"],
-                    "timestamps": events["timestamps"],
-                    "eventid": events["eventId"],
-                }
+            tmp_fname = tmp_dir.joinpath(
+                make_filename(discrete_signal.signal_name, block, ext=".npy")
             )
-            df = df.assign(
-                timestamps=lambda x: x["timestamps"] + timestamp_correction
-            ).pipe(
-                lambda x: x.iloc[num_skip:, :]
-            )  # skip the first couple of trials
-            if df:
-                events_by_block.append(df["timestamps"].values.astype(int))
+            np.save(tmp_fname, signal_data)
+            tmp_files.append(tmp_fname)
 
-        events = np.concatenate(events_by_block)
-        return events
-        # for each block:
-        #   if there is continuous file for this block:
-        #       load the data channel
-        #       get its first "timestamp"
-        #       load the events file for the block
-        #       get the events only from the correct channel and eventid
-        #       subtract the first timestep and add the block start
-        #       skip num_skip
-        #
-        #   	save and add to tmp files
-        # load all the tmp files and concatenate them together
-        pass
+        output = np.concatenate([np.load(file) for file in tmp_files])
+        for file in tmp_files:
+            os.remove(file)
+        return output
+
+    def __repr__(self):
+        return "<DiscreteSignalProcessor>"
 
 
-class AnalogSignalProcessor(Processor):
+class AnalogSignalProcessor:
     def __init__(self):
         pass
 
-    def downsample(
-        self,
-        continuous_files: list,
-        blocks: list,
-        current_sampling_rate: int,
-        desired_sampling_rate: int,
-        tmp_dir,
-    ):
-        """
-        - downsamples each continuous file
-        - concatenates them all together
-        - returns the result as a df with columns time and value
-        """
-
-        downsampling_factor = int(current_sampling_rate / desired_sampling_rate)
-        downsampling_kwargs = {
-            "q": downsampling_factor,
-            "ftype": "fir",
-            "zero_phase": True,
-        }
-
-        # downsample
-        data = self.load_apply_concat(
-            blocks=blocks,
-            continuous_files=continuous_files,
-            tmp_dir=tmp_dir,
-            func=decimate,
-            func_kwargs=downsampling_kwargs,
+    def downsample(self, blocks, asignal, tmp_dir):
+        downsampling_factor = int(
+            asignal.current_sampling_rate / asignal.desired_sampling_rate
         )
-        time = np.ones((1, len(data))).flatten() * (1 / desired_sampling_rate)
-        time = np.cumsum(time)
-        return pd.DataFrame({"time": time, "value": data})
+        sampling_period = 1 / asignal.desired_sampling_rate
+        tmp_files: list = []
+        for block in blocks:
+            logger.debug(f"{self}.downsample: Processing: {block}")
+            try:
+                signal_data = asignal.load(block=block)
+            except KeyError:
+                logger.debug(f"{self}.downsample: Data unavailible for {block}")
+                continue
+            downsampled_data = decimate(
+                signal_data, q=downsampling_factor, zero_phase="fir"
+            )
+            tmp_fname = tmp_dir.joinpath(
+                make_filename(asignal.signal_name, block, ext=".npy")
+            )
+            np.save(tmp_fname, downsampled_data)
+            tmp_files.append(tmp_fname)
+        logger.debug(f"{self}: downsample: Concatenating")
+        data = np.concatenate([np.load(file) for file in tmp_files])
+        time = np.cumsum(np.ones((1, len(data))).flatten() * sampling_period)
+        output = pd.DataFrame({"time": time, "value": data})
+        for file in tmp_files:
+            os.remove(file)
+        return output
 
     def stft(self, signal, fs: int, fft_window: int):
         """
         - takes input signal of tidy df
         - performs stft on the signal
         - returns a tidy dataframe result with columns time, f, value
+        - fft window: time in seconds for the stft
+        - t is returned in units of seconds
         """
+        logger.debug(f"{self}: stft: running function")
         nperseg = fft_window * fs
         f, t, Zxx = stft(signal, fs=fs, nperseg=nperseg)
-        out = df2 = pd.DataFrame(data=np.abs(Zxx), index=f, columns=t)
+        df2 = pd.DataFrame(data=np.abs(Zxx), index=f, columns=t)
         return (
             df2.reset_index()
             .rename(columns={"index": "frequency"})
             .melt(id_vars="frequency", var_name="timepoint", value_name="value")
         )
 
+    def __repr__(self):
+        return f"<AnalogSignalProcessor>"
+
+
+class SpikesProcessor:
+    def __init__(self):
+        pass
+
+    def get_neurons(self, kilosort_dir):
+        """
+        - given kilosort dir, create pandas df with columns recording_session_name, cluster_id, is_single_unit
+        - is_single_unit = True for SU, Flase for MUA
+        - discards noise clusters
+        """
+        pdb.set_trace()
+        cluster_groups = pd.read_csv(
+            kilosort_dir.joinpath("cluster_groups.csv"), sep="\t"
+        )
+        cluster_groups = cluster_groups.loc[cluster_groups["group"] != "noise"]
+
+        if len(cluster_groups) == 0:
+            raise NoNeuronsError("No neurons found")
+        pdb.set_trace()
+        pass
+
+    def get_waveforms(self):
+        pass
+
+    def get_spiketimes(self):
+        pass
+
+    def get_ifr(self):
+        pass
