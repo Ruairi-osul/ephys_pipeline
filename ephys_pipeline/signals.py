@@ -23,6 +23,7 @@ class AnalogSignal:
         self.ext = ext
         self.file_names: dict = {}
         self.processed_data: dict = {}
+        self.is_corrupt = False
 
         if self.ext == ".continuous":
             self.file_name = make_filename(continuous_prefix, channel, ext=self.ext)
@@ -92,6 +93,7 @@ class DiscreteSignal:
         self.from_analog = from_analog
         self.file_names: dict = {}
         self.processed_data: dict = {}
+        self.is_corrupt = False
 
         if from_analog:
             self.file_name = make_filename(

@@ -315,6 +315,7 @@ class RecordingSessionInserter(Inserter):
             session_date=self.recording.date,
             start_time=self.recording.start_time,
             group_id=self.recording.group_id,
+            chan_map_id=self.recording.chan_map_id,
         )
         session.add(new_recording)
         session.flush()
@@ -411,9 +412,9 @@ class RecordingSessionInserter(Inserter):
         logger.info(f"{self}: Inserting discrete data")
         for signal in self.recording.discrete_signals:
             data = np.load(signal.processed_data["data_path"])
-            data = pd.DataFrame({"signal_id": signal.id, "timpoint_sample": data})
+            data = pd.DataFrame({"signal_id": signal.id, "timepoint_sample": data})
             session.bulk_insert_mappings(
-                self.orm.analog_signal_stft, data.to_dict(orient="records")
+                self.orm.discrete_signal_data, data.to_dict(orient="records")
             )
             os.remove(signal.processed_data["data_path"])
 
@@ -431,5 +432,4 @@ class RecordingSessionInserter(Inserter):
             return
 
     def __repr__(self):
-        return f"<RecordingInserter: {self.recording.meta['session_name']}"
-
+        return f"<RecordingInserter: {self.recording.meta['session_name']}>"

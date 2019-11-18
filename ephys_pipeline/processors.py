@@ -126,7 +126,7 @@ class AnalogSignalProcessor:
         return (
             df2.reset_index()
             .rename(columns={"index": "frequency"})
-            .melt(id_vars="frequency", var_name="timepoint", value_name="fft_value")
+            .melt(id_vars="frequency", var_name="timepoint_s", value_name="fft_value")
         )
 
     def __repr__(self):

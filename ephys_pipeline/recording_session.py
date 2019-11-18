@@ -195,13 +195,7 @@ class RecordingSession:
         block_lengths = processor.get_block_lengths(
             continuous_blocks=self.continuous_blocks, blocks=self.blocks,
         )
-        fname = self.paths["extracted_dir"].joinpath(
-            make_filename(self.meta["session_name"], "block_lengths", ext=".json",)
-        )
-        with open(fname, "w") as f:
-            json.dump(block_lengths, f)
         self.block_lengths = block_lengths
-        self.paths["block_lengths"] = fname
 
     def process_analog_signals(self):
         """
@@ -247,7 +241,10 @@ class RecordingSession:
             write_feather(
                 df=downsampled_data, dest=signal.processed_data["downsampled_data"]
             )
-            write_feather(df=stft, dest=signal.processed_data["stft_data"])
+            write_feather(
+                df=stft.dropna().drop_duplicates(),
+                dest=signal.processed_data["stft_data"],
+            )
 
     def process_discrete_signals(self):
         logger.info(f"Processing discrete signals: {self}")

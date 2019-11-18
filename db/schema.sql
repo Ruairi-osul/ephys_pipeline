@@ -203,11 +203,11 @@ CREATE TABLE analog_data (
 
 CREATE TABLE discrete_signal_data (
     signal_id INT,
-    timpoint_sample BIGINT,
+    timepoint_sample BIGINT,
     FOREIGN KEY (signal_id)
         REFERENCES session_discrete_signals(id)
         ON DELETE CASCADE,
-    PRIMARY KEY (signal_id, timpoint_sample)
+    PRIMARY KEY (signal_id, timepoint_sample)
 );
 
 
@@ -225,8 +225,9 @@ CREATE TABLE analog_signal_stft (
     signal_id INT NOT NULL,
     timepoint_s DOUBLE NOT NULL,
     fft_value DOUBLE,
+    frequency DOUBLE,
     FOREIGN KEY (signal_id)
         REFERENCES session_analog_signals(id)
         ON DELETE CASCADE,
-    PRIMARY KEY (signal_id, timepoint_s)
+    PRIMARY KEY (signal_id, frequency, timepoint_s)
 );

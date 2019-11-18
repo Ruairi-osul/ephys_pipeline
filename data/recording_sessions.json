@@ -77,5 +77,84 @@
                 "channel": "ADC8"
             }
         ]
+    },
+    {
+        "meta": {
+            "session_name": "opto_02",
+            "experiment_name": "OPTO",
+            "experimental_group_name": "SERT-CHR2",
+            "date": "2019-07-05",
+            "start_time": "11-13-47"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "OPTO_2_2019-07-05_11-13-47_PRE"
+            },
+            {
+                "block_name": "opto_1hz",
+                "dir_name": "OPTO_2_2019-07-05_11-34-19_OPTO_1HZ"
+            },
+            {
+                "block_name": "post_opto_1hz",
+                "dir_name": "OPTO_2_2019-07-05_11-54-35_POST_OPTO_1HZ"
+            },
+            {
+                "block_name": "opto_20hz",
+                "dir_name": "OPTO_2_2019-07-05_12-14-47_OPTO_20HZ"
+            },
+            {
+                "block_name": "post_opto_20hz",
+                "dir_name": "OPTO_2_2019-07-05_12-37-26_POST_OPTO_20HZ"
+            }
+        ],
+        "dat_file": "opto_02/opto_02.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "ADC8"
+            }
+        ]
     }
 ]
