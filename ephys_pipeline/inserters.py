@@ -4,7 +4,6 @@ from .logger import logger
 import pandas as pd
 import numpy as np
 import dotenv
-import pdb
 import os
 
 dotenv.load_dotenv()
@@ -422,7 +421,6 @@ class RecordingSessionInserter(Inserter):
         if self.recording.no_neurons:
             logger.error(f"{self}: No neurons to insert")
             return
-        pdb.set_trace()
         fname = self.recording.processed_data["neurons"]
         data = pd.read_feather(fname)
         for neuron in data.to_dict(orient="records"):
@@ -433,24 +431,24 @@ class RecordingSessionInserter(Inserter):
                 recording_session_id=self.db_recording.id,
             )
             session.add(new_neuron)
-        session.flush()
+            session.flush()
         os.remove(fname)
+        self.db_neurons = pd.DataFrame(
+            [
+                {"neuron_id": n.id, "cluster_id": n.cluster_id}
+                for n in session.query(self.orm.neurons)
+            ]
+        )
 
     def insert_spike_times(self, session):
         if self.recording.no_neurons:
             return
         fname = self.recording.processed_data["spiketimes"]
         spike_times = pd.read_feather(fname)
-        neurons = pd.read_sql(
-            session.query(self.orm.neurons)
-            .filter(self.orm.neurons.recording_session_id == self.db_recording.id)
-            .statement,
-            con=session.bind,
-        )
         spike_times = (
-            pd.merge(spike_times, neurons[["cluster_id", "id"]])
+            pd.merge(spike_times, self.db_neurons[["cluster_id", "neuron_id"]])
             .drop("cluster_id", axis=1)
-            .rename(columns={"id": "neuron_id"})
+            .drop_duplicates()
         )
         session.bulk_insert_mappings(
             self.orm.spike_times, spike_times.to_dict(orient="records")
@@ -460,6 +458,17 @@ class RecordingSessionInserter(Inserter):
     def insert_waveforms(self, session):
         if self.recording.no_neurons:
             return
+        fname = self.recording.processed_data["waveforms"]
+        waveforms = pd.read_feather(fname)
+        waveforms = (
+            pd.merge(waveforms, self.db_neurons[["cluster_id", "neuron_id"]])
+            .drop("cluster_id", axis=1)
+            .drop_duplicates()
+        )
+        session.bulk_insert_mappings(
+            self.orm.waveforms, waveforms.to_dict(orient="records")
+        )
+        os.remove(fname)
 
     def __repr__(self):
         return f"<RecordingInserter: {self.recording.meta['session_name']}>"
