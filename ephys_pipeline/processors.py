@@ -1,6 +1,8 @@
 from .logger import logger
 from .errors import NoNeuronsError
 from .utils import make_filename
+from .utils import get_waveforms as waveforms_functional
+from spiketimes.df import ifr_by_neuron
 from scipy.signal import decimate, stft
 import pandas as pd
 import numpy as np
@@ -143,22 +145,43 @@ class SpikesProcessor:
         - is_single_unit = True for SU, Flase for MUA
         - discards noise clusters
         """
-        # pdb.set_trace()
-        cluster_groups = pd.read_csv(
-            kilosort_dir.joinpath("cluster_groups.csv"), sep="\t"
-        )
-        cluster_groups = cluster_groups.loc[cluster_groups["group"] != "noise"]
-
-        if len(cluster_groups) == 0:
+        fn = kilosort_dir.joinpath("cluster_groups.csv")
+        logger.debug(f"{self}: loading {fn}")
+        neurons = pd.read_csv(fn, sep="\t")
+        neurons = neurons.loc[neurons["group"] != "noise"]
+        if len(neurons) == 0:
             raise NoNeuronsError("No neurons found")
-        # pdb.set_trace()
-        pass
+        neurons["is_single_unit"] = neurons["group"] == "good"
+        return neurons.drop("group", axis=1)
 
-    def get_waveforms(self):
-        pass
+    def get_spiketimes(self, kilosort_dir, neurons):
+        fn_spike_times = kilosort_dir.joinpath("spike_times.npy")
+        fn_spike_clusters = kilosort_dir.joinpath("spike_clusters.npy")
+        spike_times = np.load(fn_spike_times).flatten()
+        spike_clusters = np.load(fn_spike_clusters).flatten()
+        spike_times = pd.DataFrame(
+            {"spike_time_samples": spike_times, "cluster_id": spike_clusters}
+        )
+        spike_times = spike_times[spike_times["cluster_id"].isin(neurons["cluster_id"])]
+        return spike_times
 
-    def get_spiketimes(self):
-        pass
+    def get_waveforms_chans(self, spike_times, dat_file_path):
+        waveforms, chans = waveforms_functional(spike_times, dat_file_path)
+        return waveforms, chans
 
-    def get_ifr(self):
-        pass
+    def get_ifr(self, spike_times, ifr_fs=1, fs=30000):
+        return (
+            spike_times.assign(
+                spike_times_seconds=spike_times["spike_time_samples"].divide(30000)
+            )
+            .pipe(
+                lambda x: ifr_by_neuron(
+                    df=x,
+                    neuron_col="cluster_id",
+                    spiketime_col="spike_times_seconds",
+                    ifr_fs=ifr_fs,
+                    t_start=0,
+                )
+            )
+            .rename(columns={"time": "timepoint_sec"})
+        )

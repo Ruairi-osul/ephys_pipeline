@@ -8,15 +8,15 @@ from .processors import (
     BlockTimesProcessor,
     SpikesProcessor,
 )
+from .logger import logger
 from .errors import NoNeuronsError
 from pathlib import Path
 import dotenv
-import json
 import os
 import numpy as np
+import pandas as pd
 import pdb
 from pyarrow.feather import write_feather
-from .logger import logger
 from datetime import time, date
 
 dotenv.load_dotenv()
@@ -50,6 +50,7 @@ class RecordingSession:
         self.dat_file = dat_file
         self.duplicates = duplicates  # TODO change to duplicate behaviour
         self.paths: dict = {}
+        self.processed_data: dict = {}
         self.no_neurons = False
         self.no_analog_signals = False
         self.no_discrete_signals = False
@@ -153,6 +154,7 @@ class RecordingSession:
         self.paths["kilosort_dir"] = self.paths["dat_file_dir"].joinpath(
             self.meta["session_name"]
         )
+        self.dat_file = self.paths["kilosort_dir"].joinpath(self.dat_file)
 
         for path in self.paths.values():
             path.mkdir(exist_ok=True)
@@ -207,7 +209,7 @@ class RecordingSession:
         logger.info(f"Processing analog signals: {self}")
 
         for signal in self.analog_signals:
-            logger.info(f"Processing: {signal}")
+            logger.debug(f"Processing: {signal}")
 
             processor = AnalogSignalProcessor()
             downsampled_data = processor.downsample(
@@ -267,11 +269,33 @@ class RecordingSession:
         logger.info(f"Porcessing neurons: {self}")
         processor = SpikesProcessor()
         try:
-            processor.get_neurons(kilosort_dir=self.paths["kilosort_dir"])
+            neurons = processor.get_neurons(kilosort_dir=self.paths["kilosort_dir"])
         except NoNeuronsError:
             logger.error(f"No Neurons found {self}")
             self.no_neurons = True
             return
+        spike_times = processor.get_spiketimes(
+            kilosort_dir=self.paths["kilosort_dir"], neurons=neurons
+        )
+        waveforms, chans = processor.get_waveforms_chans(
+            spike_times=spike_times, dat_file_path=self.dat_file
+        )
+        neurons = pd.merge(neurons, chans)
+        ifr = processor.get_ifr(
+            spike_times=spike_times, ifr_fs=1, fs=self.config["probe"]["sampleing_rate"]
+        )
+
+        for name, df in (
+            ("neurons", neurons),
+            ("spiketimes", spike_times),
+            ("waveforms", waveforms),
+            ("ifr", ifr),
+        ):
+            file_name = self.paths["extracted_dir"].joinpath(
+                make_filename(self.meta["session_name"], name, ext=".feather")
+            )
+            write_feather(df, file_name)
+            self.processed_data[name] = file_name
 
     def process_data(self):
         session = self.Session()

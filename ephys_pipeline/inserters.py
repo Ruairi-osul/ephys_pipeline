@@ -420,12 +420,42 @@ class RecordingSessionInserter(Inserter):
 
     def insert_neurons(self, session):
         if self.recording.no_neurons:
-            logger.debug(f"{self}: No neurons to insert")
+            logger.error(f"{self}: No neurons to insert")
             return
+        pdb.set_trace()
+        fname = self.recording.processed_data["neurons"]
+        data = pd.read_feather(fname)
+        for neuron in data.to_dict(orient="records"):
+            new_neuron = self.orm.neurons(
+                cluster_id=neuron["cluster_id"],
+                is_single_unit=neuron["is_single_unit"],
+                channel=neuron["channel"],
+                recording_session_id=self.db_recording.id,
+            )
+            session.add(new_neuron)
+        session.flush()
+        os.remove(fname)
 
     def insert_spike_times(self, session):
         if self.recording.no_neurons:
             return
+        fname = self.recording.processed_data["spiketimes"]
+        spike_times = pd.read_feather(fname)
+        neurons = pd.read_sql(
+            session.query(self.orm.neurons)
+            .filter(self.orm.neurons.recording_session_id == self.db_recording.id)
+            .statement,
+            con=session.bind,
+        )
+        spike_times = (
+            pd.merge(spike_times, neurons[["cluster_id", "id"]])
+            .drop("cluster_id", axis=1)
+            .rename(columns={"id": "neuron_id"})
+        )
+        session.bulk_insert_mappings(
+            self.orm.spike_times, spike_times.to_dict(orient="records")
+        )
+        os.remove(fname)
 
     def insert_waveforms(self, session):
         if self.recording.no_neurons:

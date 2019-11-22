@@ -24,7 +24,7 @@
                 "dir_name": "ESHOCK_01_2019-02-28_15-10-42_SHOCK"
             }
         ],
-        "dat_file": "ESHOCK_01/ESHOCK_01.dat",
+        "dat_file": "ESHOCK_01.dat",
         "analog_signals": [
             {
                 "signal_name": "eeg_fl",
@@ -115,7 +115,7 @@
                 "dir_name": "OPTO_2_2019-07-05_12-37-26_POST_OPTO_20HZ"
             }
         ],
-        "dat_file": "opto_02/opto_02.dat",
+        "dat_file": "opto_02.dat",
         "analog_signals": [
             {
                 "signal_name": "eeg_occ",
@@ -151,7 +151,7 @@
         "discrete_signals": [
             {
                 "signal_type": "event",
-                "signal_name": "eshock",
+                "signal_name": "opto",
                 "from_analog": true,
                 "channel": "ADC8"
             }

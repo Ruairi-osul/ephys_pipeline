@@ -153,6 +153,7 @@ CREATE TABLE neurons (
     id INT AUTO_INCREMENT PRIMARY KEY,
     recording_session_id INT,
     cluster_id INT, 
+    channel INT,
     is_single_unit INT NOT NULL,
     FOREIGN KEY (recording_session_id)
         REFERENCES recording_sessions(id)
