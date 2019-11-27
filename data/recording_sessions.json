@@ -36,7 +36,596 @@
                 "signal_name": "eeg_fr",
                 "current_sampling_rate": 30000,
                 "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
                 "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "ADC8"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "ESHOCK_02",
+            "experiment_name": "ESHOCK",
+            "experimental_group_name": "shock",
+            "date": "2019-03-05",
+            "start_time": "13-39-08"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "ESHOCK_02_2019-03-05_13-39-08_PRE"
+            },
+            {
+                "block_name": "shock",
+                "dir_name": "ESHOCK_02_2019-03-05_14-40-33_SHOCK"
+            }
+        ],
+        "dat_file": "ESHOCK_02.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "ADC8"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "ESHOCK_03_LOC1",
+            "experiment_name": "ESHOCK",
+            "experimental_group_name": "shock",
+            "date": "2019-03-08",
+            "start_time": "13-10-19"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "ESHOCK_03_LOC1_2019-03-08_13-10-19_PRE"
+            }
+        ],
+        "dat_file": "ESHOCK_03_LOC1.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "ADC8"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "ESHOCK_04_LOC1",
+            "experiment_name": "ESHOCK",
+            "experimental_group_name": "shock",
+            "date": "2019-03-08",
+            "start_time": "14-44-40"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "ESHOCK_04_LOC1_2019-03-08_14-44-40_PRE"
+            },
+            {
+                "block_name": "shock",
+                "dir_name": "ESHOCK_04_LOC1_2019-03-08_15-45-00_SHOCK"
+            },
+            {
+                "block_name": "post_shock",
+                "dir_name": "ESHOCK_04_LOC1_2019-03-08_16-15-32_PRE_DPAT"
+            },
+            {
+                "block_name": "dpat",
+                "dir_name": "ESHOCK_04_LOC1_2019-03-08_16-26-45_DPAT"
+            }
+        ],
+        "dat_file": "ESHOCK_04_LOC1.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "ADC8"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "ESHOCK_06_LOC1",
+            "experiment_name": "ESHOCK",
+            "experimental_group_name": "sham",
+            "date": "2019-04-09",
+            "start_time": "11-24-46"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "ESHOCK_06_LOC1_2019-04-09_11-24-46_PRE"
+            },
+            {
+                "block_name": "shock",
+                "dir_name": "ESHOCK_06_LOC1_2019-04-09_12-26-04_SHOCK2"
+            },
+            {
+                "block_name": "post_shock",
+                "dir_name": "ESHOCK_06_LOC1_2019-04-09_12-56-23_PRE_DPAT"
+            },
+            {
+                "block_name": "dpat",
+                "dir_name": "ESHOCK_06_LOC1_2019-04-09_13-07-04_DPAT"
+            }
+        ],
+        "dat_file": "ESHOCK_06_LOC1.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "ADC8"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "ESHOCK_07_LOC1",
+            "experiment_name": "ESHOCK",
+            "experimental_group_name": "sham",
+            "date": "2019-04-10",
+            "start_time": "12-26-32"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "ESHOCK_07_LOC1_2019-04-10_12-26-32_PRE"
+            },
+            {
+                "block_name": "shock",
+                "dir_name": "ESHOCK_07_LOC1_2019-04-10_13-27-01_SHOCK"
+            },
+            {
+                "block_name": "post_shock",
+                "dir_name": "ESHOCK_07_LOC1_2019-04-10_13-57-26_PRE_DPAT"
+            },
+            {
+                "block_name": "dpat",
+                "dir_name": "ESHOCK_07_LOC1_2019-04-10_14-08-35_DPAT"
+            }
+        ],
+        "dat_file": "ESHOCK_07_LOC1.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "ADC8"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "ESHOCK_08_LOC1",
+            "experiment_name": "ESHOCK",
+            "experimental_group_name": "sham",
+            "date": "2019-04-11",
+            "start_time": "12-42-19"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "ESHOCK_08_LOC1_2019-04-11_12-42-19_PRE"
+            },
+            {
+                "block_name": "shock",
+                "dir_name": "ESHOCK_08_LOC1_2019-04-11_13-42-31_SHCOK"
+            },
+            {
+                "block_name": "post_shock",
+                "dir_name": "ESHOCK_08_LOC1_2019-04-11_14-13-07_PRE_DPAT"
+            },
+            {
+                "block_name": "dpat",
+                "dir_name": "ESHOCK_08_LOC1_2019-04-11_14-24-28_DPAT"
+            }
+        ],
+        "dat_file": "ESHOCK_08_LOC1.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "ADC8"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "ESHOCK_09_LOC1",
+            "experiment_name": "ESHOCK",
+            "experimental_group_name": "sham",
+            "date": "2019-04-12",
+            "start_time": "12-50-05"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "ESHOCK_09_LOC1_2019-04-12_12-50-05_PRE"
+            },
+            {
+                "block_name": "shock",
+                "dir_name": "ESHOCK_09_LOC1_2019-04-12_13-50-33_SHOCK"
+            },
+            {
+                "block_name": "post_shock",
+                "dir_name": "ESHOCK_09_LOC1_2019-04-12_14-20-53_PRE_DPAT"
+            },
+            {
+                "block_name": "dpat",
+                "dir_name": "ESHOCK_09_LOC1_2019-04-12_14-32-22_DPAT"
+            }
+        ],
+        "dat_file": "ESHOCK_09_LOC1.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
             },
             {
                 "signal_name": "eeg_occ",

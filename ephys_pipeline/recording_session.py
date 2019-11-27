@@ -1,5 +1,5 @@
 from .utils import _prep_db, make_filename
-from .errors import DuplicateError
+from .errors import DuplicateError, CurruptDataError
 from .continuous_block import ContinuousBlock
 from .signals import AnalogSignal, DiscreteSignal
 from .processors import (
@@ -15,7 +15,7 @@ import dotenv
 import os
 import numpy as np
 import pandas as pd
-import pdb
+import warnings
 from pyarrow.feather import write_feather
 from datetime import time, date
 
@@ -25,35 +25,47 @@ dotenv.load_dotenv()
 class RecordingSession:
     def __init__(
         self,
-        meta: dict,
-        config: dict,
-        analog_signals: dict,
-        discrete_signals: dict,
-        continuous_blocks: dict,
-        dat_file: str,
-        duplicates: str,
+        meta: dict = None,
+        config: dict = None,
+        analog_signals: dict = None,
+        discrete_signals: dict = None,
+        continuous_blocks: dict = None,
+        dat_file: str = None,
+        duplicates: str = None,
     ):
         self.meta = meta
         self.config = config
-        self.analog_signals = [
-            AnalogSignal(**asig, continuous_prefix=self.config["continuous_prefix"])
-            for asig in analog_signals
-        ]
-        self.discrete_signals = [
-            DiscreteSignal(**dsig, continuous_prefix=self.config["continuous_prefix"])
-            for dsig in discrete_signals
-        ]
-        self.continuous_blocks = [
-            ContinuousBlock(**block, continuous_prefix=self.config["continuous_prefix"])
-            for block in continuous_blocks
-        ]
+        if analog_signals is not None:
+            self.analog_signals = [
+                AnalogSignal(**asig, continuous_prefix=self.config["continuous_prefix"])
+                for asig in analog_signals
+            ]
+        else:
+            self.analog_signals = analog_signals
+
+        if discrete_signals is not None:
+            self.discrete_signals = [
+                DiscreteSignal(
+                    **dsig, continuous_prefix=self.config["continuous_prefix"]
+                )
+                for dsig in discrete_signals
+            ]
+        else:
+            self.discrete_signals = discrete_signals
+        if continuous_blocks is not None:
+            self.continuous_blocks = [
+                ContinuousBlock(
+                    **block, continuous_prefix=self.config["continuous_prefix"]
+                )
+                for block in continuous_blocks
+            ]
+        else:
+            warnings.warn(f"Recording Session defined without continuous blocks {self}")
         self.dat_file = dat_file
         self.duplicates = duplicates  # TODO change to duplicate behaviour
         self.paths: dict = {}
         self.processed_data: dict = {}
         self.no_neurons = False
-        self.no_analog_signals = False
-        self.no_discrete_signals = False
 
         _prep_db(self)
 
@@ -194,9 +206,12 @@ class RecordingSession:
         logger.info(f"Processing block lengths: {self}")
 
         processor = BlockTimesProcessor()
-        block_lengths = processor.get_block_lengths(
-            continuous_blocks=self.continuous_blocks, blocks=self.blocks,
-        )
+        try:
+            block_lengths = processor.get_block_lengths(
+                continuous_blocks=self.continuous_blocks, blocks=self.blocks,
+            )
+        except CurruptDataError as e:
+            raise e("Corrupt block Lengths. Unusable data")
         self.block_lengths = block_lengths
 
     def process_analog_signals(self):
@@ -206,15 +221,23 @@ class RecordingSession:
         -   calculates stft of the downsampled signal
         -   saves the new data to extracted and updates the signal dictionary with its path
         """
-        logger.info(f"Processing analog signals: {self}")
+        if not self.analog_signals:
+            logger.error(f"No analog signals: {self}")
+            return
 
+        logger.info(f"Processing analog signals: {self}")
         for signal in self.analog_signals:
             logger.debug(f"Processing: {signal}")
 
             processor = AnalogSignalProcessor()
-            downsampled_data = processor.downsample(
-                blocks=self.blocks, asignal=signal, tmp_dir=self.paths["tmp_dir"],
-            )
+            try:
+                downsampled_data = processor.downsample(
+                    blocks=self.blocks, asignal=signal, tmp_dir=self.paths["tmp_dir"],
+                )
+            except CurruptDataError:
+                logger.error(f"Unable to process {signal}: contains corrupt data")
+                signal.is_corrupt = True
+                continue
             stft = processor.stft(
                 downsampled_data["voltage"],
                 fs=signal.desired_sampling_rate,
@@ -249,16 +272,25 @@ class RecordingSession:
             )
 
     def process_discrete_signals(self):
+        if not self.discrete_signals:
+            logger.error("No discrete signals to process")
+            return
+
         logger.info(f"Processing discrete signals: {self}")
         for signal in self.discrete_signals:
             logger.info(f"Processing: {signal}")
             processor = DiscreteSignalProcessor()
-            events = processor.process_events(
-                blocks=self.blocks,
-                discrete_signal=signal,
-                block_lengths=self.block_lengths,
-                tmp_dir=self.paths["tmp_dir"],
-            )
+            try:
+                events = processor.process_events(
+                    blocks=self.blocks,
+                    discrete_signal=signal,
+                    block_lengths=self.block_lengths,
+                    tmp_dir=self.paths["tmp_dir"],
+                )
+            except CurruptDataError:
+                logger.error(f"Unable to process {signal}: contains corrupt data")
+                signal.is_corrupt = True
+                continue
             events_path = self.paths["extracted_dir"].joinpath(
                 make_filename(self.meta["session_name"], signal.signal_name, ext=".npy")
             )

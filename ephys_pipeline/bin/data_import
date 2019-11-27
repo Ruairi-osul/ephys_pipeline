@@ -9,7 +9,7 @@ from ephys_pipeline import (
     RecordingSession,
     RecordingSessionInserter,
 )
-from ephys_pipeline.errors import DuplicateError
+from ephys_pipeline.errors import DuplicateError, CurruptDataError
 from ephys_pipeline.logger import logger
 import argparse
 
@@ -95,13 +95,13 @@ def main():
                 elif args.duplicates == "skip":
                     logger.info(f"{session}: duplicate identified, skiping")
                     continue
+            except CurruptDataError:
+                logger.error(
+                    f"Could not process {session.meta['session_name']}: corrupt data"
+                )
+                continue
             inserter = RecordingSessionInserter(session)
             inserter.run_inserts()
-
-    # recording_session = RecordingSession(**x)
-    # recording_session.process_data(session=session)
-    # inserter = RecordingSessionInserter(recording_session)
-    # inserter.run_inserts()
 
 
 if __name__ == "__main__":

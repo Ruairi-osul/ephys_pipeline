@@ -7,7 +7,6 @@ from scipy.signal import decimate, stft
 import pandas as pd
 import numpy as np
 import os
-import pdb
 
 
 class BlockTimesProcessor:
@@ -163,7 +162,7 @@ class SpikesProcessor:
             {"spike_time_samples": spike_times, "cluster_id": spike_clusters}
         )
         spike_times = spike_times[spike_times["cluster_id"].isin(neurons["cluster_id"])]
-        return spike_times
+        return spike_times.drop_duplicates()
 
     def get_waveforms_chans(self, spike_times, dat_file_path):
         waveforms, chans = waveforms_functional(spike_times, dat_file_path)

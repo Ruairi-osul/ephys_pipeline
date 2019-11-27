@@ -12,7 +12,7 @@ dotenv.load_dotenv()
 class Inserter:
     """
     - Base class for inserters
-    - Has a list attribute which stores insert methods 
+    - Has a list attribute which stores insert methods
     - Has a run_inserts method which runs each insert method sequentially in
       a single database transaction
     """
@@ -342,11 +342,14 @@ class RecordingSessionInserter(Inserter):
             session.add(new_config)
 
     def insert_session_analog_signals(self, session):
-        if self.recording.no_analog_signals:
-            logger.debug(f"{self}: No analog signals to insert")
+        if not self.recording.analog_signals:
+            logger.error(f"{self}: No analog signals to insert")
             return
+
         logger.info(f"{self}: Inserting analog signals")
         for signal in self.recording.analog_signals:
+            if signal.is_corrupt:
+                continue
             signal_id = (
                 session.query(self.orm.analog_signals)
                 .filter(self.orm.analog_signals.signal_name == signal.signal_name)
@@ -361,11 +364,14 @@ class RecordingSessionInserter(Inserter):
             signal.id = new_signal.id
 
     def insert_session_discrete_signals(self, session):
-        if self.recording.no_discrete_signals:
-            logger.debug(f"{self}: No discrete signals to insert")
+        if not self.recording.discrete_signals:
+            logger.error(f"{self}: No discrete signals to insert")
             return
+
         logger.info(f"{self}: Inserting discrete signals")
         for signal in self.recording.discrete_signals:
+            if signal.is_corrupt:
+                continue
             signal_id = (
                 session.query(self.orm.discrete_signals)
                 .filter(self.orm.discrete_signals.signal_name == signal.signal_name)
@@ -380,10 +386,13 @@ class RecordingSessionInserter(Inserter):
             signal.id = new_signal.id
 
     def insert_analog_data(self, session):
-        if self.recording.no_analog_signals:
+        if not self.recording.analog_signals:
             return
+
         logger.info(f"{self}: Inserting analog data")
         for signal in self.recording.analog_signals:
+            if signal.is_corrupt:
+                continue
             downsampled_data = pd.read_feather(
                 signal.processed_data["downsampled_data"]
             )
@@ -394,10 +403,13 @@ class RecordingSessionInserter(Inserter):
             os.remove(signal.processed_data["downsampled_data"])
 
     def insert_analog_signal_fft(self, session):
-        if self.recording.no_analog_signals:
+        if not self.recording.analog_signals:
             return
+
         logger.info(f"{self}: Inserting analog stft")
         for signal in self.recording.analog_signals:
+            if signal.is_corrupt:
+                continue
             stft_data = pd.read_feather(signal.processed_data["stft_data"])
             stft_data["signal_id"] = signal.id
             session.bulk_insert_mappings(
@@ -406,10 +418,13 @@ class RecordingSessionInserter(Inserter):
             os.remove(signal.processed_data["stft_data"])
 
     def insert_discrete_signal_data(self, session):
-        if self.recording.no_discrete_signals:
+        if self.recording.discrete_signals:
             return
+
         logger.info(f"{self}: Inserting discrete data")
         for signal in self.recording.discrete_signals:
+            if signal.is_corrupt:
+                continue
             data = np.load(signal.processed_data["data_path"])
             data = pd.DataFrame({"signal_id": signal.id, "timepoint_sample": data})
             session.bulk_insert_mappings(
@@ -421,6 +436,8 @@ class RecordingSessionInserter(Inserter):
         if self.recording.no_neurons:
             logger.error(f"{self}: No neurons to insert")
             return
+
+        logger.debug(f"{self}: Instering Neurons")
         fname = self.recording.processed_data["neurons"]
         data = pd.read_feather(fname)
         for neuron in data.to_dict(orient="records"):
@@ -436,7 +453,9 @@ class RecordingSessionInserter(Inserter):
         self.db_neurons = pd.DataFrame(
             [
                 {"neuron_id": n.id, "cluster_id": n.cluster_id}
-                for n in session.query(self.orm.neurons)
+                for n in session.query(self.orm.neurons).filter(
+                    self.orm.neurons.recording_session_id == self.db_recording.id
+                )
             ]
         )
 
@@ -451,7 +470,8 @@ class RecordingSessionInserter(Inserter):
             .drop_duplicates()
         )
         session.bulk_insert_mappings(
-            self.orm.spike_times, spike_times.to_dict(orient="records")
+            self.orm.spike_times,
+            spike_times.drop_duplicates().to_dict(orient="records"),
         )
         os.remove(fname)
 

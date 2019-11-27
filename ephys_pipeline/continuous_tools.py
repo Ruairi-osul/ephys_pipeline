@@ -169,7 +169,9 @@ def loadContinuous(filepath, dtype=float):
         # print index
 
         if N != SAMPLES_PER_RECORD:
-            raise Exception("Found corrupted record in block " + str(recordNumber))
+            raise CurruptDataError(
+                "Found corrupted record in block " + str(recordNumber)
+            )
 
         recordingNumbers[recordNumber] = np.fromfile(
             f, np.dtype(">u2"), 1
