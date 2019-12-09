@@ -299,6 +299,7 @@ class RecordingSessionInserter(Inserter):
         self.insert_methods.append(self.insert_discrete_signal_data)
         self.insert_methods.append(self.insert_neurons)
         self.insert_methods.append(self.insert_spike_times)
+        self.insert_methods.append(self.insert_ifr)
         self.insert_methods.append(self.insert_waveforms)
 
     def _duplicate_check(self, session):
@@ -418,7 +419,7 @@ class RecordingSessionInserter(Inserter):
             os.remove(signal.processed_data["stft_data"])
 
     def insert_discrete_signal_data(self, session):
-        if self.recording.discrete_signals:
+        if not self.recording.discrete_signals:
             return
 
         logger.info(f"{self}: Inserting discrete data")
@@ -459,9 +460,28 @@ class RecordingSessionInserter(Inserter):
             ]
         )
 
+    def insert_ifr(self, session):
+        if self.recording.no_neurons:
+            return
+
+        logger.info(f"{self}: Instering IFR")
+        fname = self.recording.processed_data["ifr"]
+        ifr = pd.read_feather(fname)
+        ifr = (
+            pd.merge(ifr, self.db_neurons[["cluster_id", "neuron_id"]])
+            .drop("cluster_id", axis=1)
+            .drop_duplicates()
+        )
+        session.bulk_insert_mappings(
+            self.orm.neuron_ifr, ifr.drop_duplicates().to_dict(orient="records"),
+        )
+        os.remove(fname)
+
     def insert_spike_times(self, session):
         if self.recording.no_neurons:
             return
+
+        logger.info(f"{self}: Instering spike times")
         fname = self.recording.processed_data["spiketimes"]
         spike_times = pd.read_feather(fname)
         spike_times = (
@@ -478,6 +498,8 @@ class RecordingSessionInserter(Inserter):
     def insert_waveforms(self, session):
         if self.recording.no_neurons:
             return
+
+        logger.info(f"{self}: Instering waveforms")
         fname = self.recording.processed_data["waveforms"]
         waveforms = pd.read_feather(fname)
         waveforms = (

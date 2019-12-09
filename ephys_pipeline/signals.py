@@ -69,12 +69,13 @@ class DiscreteSignal:
         signal_type: str,
         signal_name: str,
         continuous_prefix: str,
+        session_name=None,
         channel=None,
         from_analog=False,
         from_digital=False,
         from_manual=False,
+        fname=None,
         dummy_ch="CH2",
-        event_chan=4,
         event_id=1,
     ):
 
@@ -84,6 +85,8 @@ class DiscreteSignal:
         self.signal_type = signal_type
         self.signal_name = signal_name
         self.channel = channel
+        self.session_name = session_name
+        self.fname = fname
         self.continuous_prefix = continuous_prefix
         self.dummy_channel_name = make_filename(
             continuous_prefix, dummy_ch, ext=".continuous"
@@ -94,6 +97,7 @@ class DiscreteSignal:
         self.file_names: dict = {}
         self.processed_data: dict = {}
         self.is_corrupt = False
+        self.event_id = event_id
 
         if from_analog:
             self.file_name = make_filename(
@@ -101,10 +105,10 @@ class DiscreteSignal:
             )
             self.load = self._load_analog
         elif from_digital:
-            self.file_name = channel
+            self.file_name = "all_channels.events"
             self.load = self._load_digital
         elif from_manual:
-            self.file_name = channel
+            self.file_name = fname
             self.load = self._load_manual
 
     def make_paths_absolute(self, continuous_blocs, extracted_path):
@@ -117,7 +121,7 @@ class DiscreteSignal:
                     "file_name": file_name,
                 }
         else:
-            self.file_name = extracted_path.joinpath(self.file_name)
+            self.file_name = extracted_path / self.session_name / self.file_name
 
     def load(self):
         raise NotImplementedError
@@ -134,9 +138,11 @@ class DiscreteSignal:
         fname_dummy = self.file_names[block_name]["dummy_channel"]
         logger.debug(f"{self}._load_digital: Loading dummy_channel: {fname_dummy}")
         first_timestamp = loadContinuous(fname_dummy)["timestamps"][0]
+
         fname_events = self.file_names[block_name]["file_name"]
         logger.debug(f"{self}._load_digital: Loading events: {fname_events}")
         event_data = loadEvents(fname_events)
+
         df = pd.DataFrame(
             {
                 "channel": event_data["channel"],
@@ -144,14 +150,12 @@ class DiscreteSignal:
                 "eventid": event_data["eventId"],
             }
         )
-        df = df[
-            (df["eventid"] == self.event_id) & (df["channel"] == int(self.event_chan))
-        ]
+        df = df[(df["eventid"] == self.event_id) & (df["channel"] == int(self.channel))]
         df["timestamps"] = df["timestamps"] - first_timestamp + block_start
 
         return df["timestamps"].iloc[5:].values.astype(int)
 
-    def _load_manual(self, block_name, block_start):
+    def _load_manual(self):
         logger.debug(f"{self}._load_manual: {self.file_name}")
         return np.load(self.file_name)
 

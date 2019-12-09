@@ -54,6 +54,8 @@ class DiscreteSignalProcessor:
         """
         """
         tmp_files: list = []
+        if discrete_signal.from_manual:
+            return discrete_signal.load()
         for block in blocks:
             logger.debug(f"{self}.process_events: Processing {block}")
             try:
@@ -182,5 +184,5 @@ class SpikesProcessor:
                     t_start=0,
                 )
             )
-            .rename(columns={"time": "timepoint_sec"})
+            .rename(columns={"time": "timepoint_s"})
         )

@@ -745,5 +745,3626 @@
                 "channel": "ADC8"
             }
         ]
+    },
+    {
+        "meta": {
+            "session_name": "opto_03",
+            "experiment_name": "OPTO",
+            "experimental_group_name": "SERT-CHR2",
+            "date": "2019-07-05",
+            "start_time": "15-26-36"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "OPTO_3_2019-07-05_15-26-36_PRE"
+            },
+            {
+                "block_name": "opto_1hz",
+                "dir_name": "OPTO_3_2019-07-05_15-47-24_OPTO_1HZ"
+            },
+            {
+                "block_name": "post_opto_1hz",
+                "dir_name": "OPTO_3_2019-07-05_16-10-51_POST_OPTO_1HZ"
+            },
+            {
+                "block_name": "opto_20hz",
+                "dir_name": "OPTO_3_2019-07-05_16-31-02_OPTO_20HZ"
+            },
+            {
+                "block_name": "post_opto_20hz",
+                "dir_name": "OPTO_3_2019-07-05_16-51-30_POST_OPTO_20HZ"
+            }
+        ],
+        "dat_file": "opto_03.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "opto",
+                "from_digital": true,
+                "channel": "4"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "opto_05",
+            "experiment_name": "OPTO",
+            "experimental_group_name": "SERT-CHR2",
+            "date": "2019-07-06",
+            "start_time": "13-54-31"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "OPTO_5_2019-07-06_13-54-31_PRE"
+            },
+            {
+                "block_name": "opto_1hz",
+                "dir_name": "OPTO_5_2019-07-06_14-14-46_OPTO_1HZ"
+            },
+            {
+                "block_name": "post_opto_1hz",
+                "dir_name": "OPTO_5_2019-07-06_14-35-02_POST_OPTO_1HZ"
+            },
+            {
+                "block_name": "opto_20hz",
+                "dir_name": "OPTO_5_2019-07-06_14-55-12_OPTO_20HZ"
+            },
+            {
+                "block_name": "post_opto_20hz",
+                "dir_name": "OPTO_5_2019-07-06_15-15-21_POST_OPTO_20HZ"
+            }
+        ],
+        "dat_file": "opto_05.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "opto",
+                "from_digital": true,
+                "channel": "4"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "opto_06",
+            "experiment_name": "OPTO",
+            "experimental_group_name": "SERT-CHR2",
+            "date": "2019-07-07",
+            "start_time": "11-14-01"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "OPTO_6_2019-07-07_11-14-01_PRE"
+            },
+            {
+                "block_name": "opto_1hz",
+                "dir_name": "OPTO_6_2019-07-07_11-34-15_OPTO_1HZ"
+            },
+            {
+                "block_name": "post_opto_1hz",
+                "dir_name": "OPTO_6_2019-07-07_11-54-27_POST_OPTO_1HZ"
+            },
+            {
+                "block_name": "opto_20hz",
+                "dir_name": "OPTO_6_2019-07-07_12-14-43_OPTO_20HZ"
+            },
+            {
+                "block_name": "post_opto_20hz",
+                "dir_name": "OPTO_6_2019-07-07_12-34-55_POST_OPTO_20HZ"
+            }
+        ],
+        "dat_file": "opto_06.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "opto",
+                "from_digital": true,
+                "channel": "4"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "opto_07",
+            "experiment_name": "OPTO",
+            "experimental_group_name": "SERT-CHR2",
+            "date": "2019-07-07",
+            "start_time": "14-43-28"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "OPTO_7_2019-07-07_14-43-28_PRE"
+            },
+            {
+                "block_name": "opto_1hz",
+                "dir_name": "OPTO_7_2019-07-07_15-03-36_OPTO_1HZ"
+            },
+            {
+                "block_name": "post_opto_1hz",
+                "dir_name": "OPTO_7_2019-07-07_15-23-49_POST_OPTO_1HZ"
+            },
+            {
+                "block_name": "opto_20hz",
+                "dir_name": "OPTO_7_2019-07-07_15-44-13_OPTO_20HZ"
+            },
+            {
+                "block_name": "post_opto_20hz",
+                "dir_name": "OPTO_7_2019-07-07_16-04-25_POST_OPTO_20HZ"
+            }
+        ],
+        "dat_file": "opto_07.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "opto",
+                "from_digital": true,
+                "channel": "4"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "opto_08",
+            "experiment_name": "OPTO",
+            "experimental_group_name": "SERT-CHR2",
+            "date": "2019-07-08",
+            "start_time": "11-16-09"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "OPTO_8_2019-07-08_11-16-09_PRE"
+            },
+            {
+                "block_name": "opto_1hz",
+                "dir_name": "OPTO_8_2019-07-08_11-36-20_OPTO_1HZ"
+            },
+            {
+                "block_name": "post_opto_1hz",
+                "dir_name": "OPTO_8_2019-07-08_11-56-33_POST_OPTO_1HZ"
+            },
+            {
+                "block_name": "opto_20hz",
+                "dir_name": "OPTO_8_2019-07-08_12-16-49_OPTO_20HZ"
+            },
+            {
+                "block_name": "post_opto_20hz",
+                "dir_name": "OPTO_8_2019-07-08_12-37-29_POST_OPTO_20HZ"
+            }
+        ],
+        "dat_file": "opto_08.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "opto",
+                "from_digital": true,
+                "channel": "4"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "opto_09",
+            "experiment_name": "OPTO",
+            "experimental_group_name": "SERT-CHR2",
+            "date": "2019-07-08",
+            "start_time": "14-48-44"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "OPTO_9_2019-07-08_14-48-44_PRE"
+            },
+            {
+                "block_name": "opto_1hz",
+                "dir_name": "OPTO_9_2019-07-08_15-09-02_OPTO_1HZ"
+            },
+            {
+                "block_name": "post_opto_1hz",
+                "dir_name": "OPTO_9_2019-07-08_15-29-16_POST_OPTO_1HZ"
+            },
+            {
+                "block_name": "opto_20hz",
+                "dir_name": "OPTO_9_2019-07-08_15-49-29_OPTO_20HZ"
+            },
+            {
+                "block_name": "post_opto_20hz",
+                "dir_name": "OPTO_9_2019-07-08_16-09-48_POST_OPTO_20HZ"
+            }
+        ],
+        "dat_file": "opto_09.dat",
+        "analog_signals": [
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "opto",
+                "from_digital": true,
+                "channel": "4"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "opto_10",
+            "experiment_name": "OPTO",
+            "experimental_group_name": "SERT-VGLUT-KO-CHR2",
+            "date": "2019-08-19",
+            "start_time": "12-01-48"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "OPTO_10_2019-08-19_12-01-48_PRE"
+            },
+            {
+                "block_name": "opto_1hz",
+                "dir_name": "OPTO_10_2019-08-19_12-22-34_OPTO_1HZ_USETHIS"
+            },
+            {
+                "block_name": "post_opto_1hz",
+                "dir_name": "OPTO_10_2019-08-19_12-42-52_POST_OPTO_1HZ"
+            },
+            {
+                "block_name": "opto_20hz",
+                "dir_name": "OPTO_10_2019-08-19_13-05-08_OPTO_20HZ_USE_THIS"
+            },
+            {
+                "block_name": "post_opto_20hz",
+                "dir_name": "OPTO_10_2019-08-19_13-25-28_POST_OPTO_20HZ"
+            }
+        ],
+        "dat_file": "opto_10.dat",
+        "analog_signals": [
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "opto",
+                "from_digital": true,
+                "channel": "4"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "opto_11",
+            "experiment_name": "OPTO",
+            "experimental_group_name": "SERT-VGLUT-KO-CHR2",
+            "date": "2019-08-19",
+            "start_time": "15-48-48"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "OPTO_11_2019-08-19_15-48-48_PRE"
+            },
+            {
+                "block_name": "opto_1hz",
+                "dir_name": "OPTO_11_2019-08-19_16-09-06_OPTO_1HZ"
+            },
+            {
+                "block_name": "post_opto_1hz",
+                "dir_name": "OPTO_11_2019-08-19_16-29-23_POST_OPTO_1HZ"
+            },
+            {
+                "block_name": "opto_20hz",
+                "dir_name": "OPTO_11_2019-08-19_16-49-34_OPTO_20HZ"
+            },
+            {
+                "block_name": "post_opto_20hz",
+                "dir_name": "OPTO_11_2019-08-19_17-10-33_POST_OPTO_20HZ"
+            }
+        ],
+        "dat_file": "opto_11.dat",
+        "analog_signals": [
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "opto",
+                "from_digital": true,
+                "channel": "4"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "opto_12",
+            "experiment_name": "OPTO",
+            "experimental_group_name": "SERT-VGLUT-KO-CHR2",
+            "date": "2019-08-20",
+            "start_time": "10-43-24"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "OPTO_12_2019-08-20_10-43-24_PRE"
+            },
+            {
+                "block_name": "opto_1hz",
+                "dir_name": "OPTO_12_2019-08-20_11-03-37_OPTO_1HZ"
+            },
+            {
+                "block_name": "post_opto_1hz",
+                "dir_name": "OPTO_12_2019-08-20_11-24-00_POST_OPTO_1HZ"
+            },
+            {
+                "block_name": "opto_20hz",
+                "dir_name": "OPTO_12_2019-08-20_11-44-10_OPTO_20HZ"
+            },
+            {
+                "block_name": "post_opto_20hz",
+                "dir_name": "OPTO_12_2019-08-20_12-05-15_POST_OPTO_20HZ"
+            }
+        ],
+        "dat_file": "opto_12.dat",
+        "analog_signals": [
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "opto",
+                "from_digital": true,
+                "channel": "4"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "opto_13",
+            "experiment_name": "OPTO",
+            "experimental_group_name": "SERT-VGLUT-KO-CHR2",
+            "date": "2019-08-20",
+            "start_time": "13-55-33"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "OPTO_13_2019-08-20_13-55-33_PRE"
+            },
+            {
+                "block_name": "opto_1hz",
+                "dir_name": "OPTO_13_2019-08-20_14-15-44_OPTO_1HZ"
+            },
+            {
+                "block_name": "post_opto_1hz",
+                "dir_name": "OPTO_13_2019-08-20_14-35-56_POST_OPTO_1HZ"
+            },
+            {
+                "block_name": "opto_20hz",
+                "dir_name": "OPTO_13_2019-08-20_14-56-05_OPTO_20HZ"
+            },
+            {
+                "block_name": "post_opto_20hz",
+                "dir_name": "OPTO_13_2019-08-20_15-16-18_POST_OPTO_20HZ"
+            }
+        ],
+        "dat_file": "opto_13.dat",
+        "analog_signals": [
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "opto",
+                "from_digital": true,
+                "channel": "4"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "opto_14",
+            "experiment_name": "OPTO",
+            "experimental_group_name": "SERT-VGLUT-KO-CHR2",
+            "date": "2019-08-21",
+            "start_time": "11-00-07"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "OPTO_14_2019-08-21_11-00-07_PRE"
+            },
+            {
+                "block_name": "opto_1hz",
+                "dir_name": "OPTO_14_2019-08-21_11-20-15_OPTO_1HZ"
+            },
+            {
+                "block_name": "post_opto_1hz",
+                "dir_name": "OPTO_14_2019-08-21_11-40-26_POST_OPTO_1HZ"
+            },
+            {
+                "block_name": "opto_20hz",
+                "dir_name": "OPTO_14_2019-08-21_12-00-38_OPTO_20HZ"
+            },
+            {
+                "block_name": "post_opto_20hz",
+                "dir_name": "OPTO_14_2019-08-21_12-20-58_POST_OPTO_20HZ"
+            }
+        ],
+        "dat_file": "opto_14.dat",
+        "analog_signals": [
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "opto",
+                "from_digital": true,
+                "channel": "4"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "opto_15",
+            "experiment_name": "OPTO",
+            "experimental_group_name": "SERT-VGLUT-KO-CHR2",
+            "date": "2019-08-21",
+            "start_time": "14-16-10"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "OPTO_15_2019-08-21_14-16-10_PRE"
+            },
+            {
+                "block_name": "opto_1hz",
+                "dir_name": "OPTO_15_2019-08-21_14-36-23_OPTO_1HZ"
+            },
+            {
+                "block_name": "post_opto_1hz",
+                "dir_name": "OPTO_15_2019-08-21_14-56-57_POST_OPTO_1HZ"
+            },
+            {
+                "block_name": "opto_20hz",
+                "dir_name": "OPTO_15_2019-08-21_15-17-15_OPTO_20HZ"
+            },
+            {
+                "block_name": "post_opto_20hz",
+                "dir_name": "OPTO_15_2019-08-21_15-37-31_POST_OPTO_20HZ"
+            }
+        ],
+        "dat_file": "opto_15.dat",
+        "analog_signals": [
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "opto",
+                "from_digital": true,
+                "channel": "4"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_10",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "acute_cit",
+            "date": "2019-05-23",
+            "start_time": "12-53-08"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_10_2019-05-23_12-53-08_PRE"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_10_2019-05-23_13-24-17_CIT"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_10_2019-05-23_13-50-47_SHOCK2"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_10_2019-05-23_14-01-36_POST_STIM"
+            },
+            {
+                "block_name": "post_opto_20hz",
+                "dir_name": "HAMILTON_10_2019-05-23_14-14-16_WAY"
+            }
+        ],
+        "dat_file": "hamilton_10.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "ADC5"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_03",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "acute_sal",
+            "date": "2019-05-24",
+            "start_time": "11-01-33"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_03_2019-05-24_11-01-33_PRE"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_03_2019-05-24_11-32-39_SAL"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_03_2019-05-24_11-52-50_CHALSHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_03_2019-05-24_12-03-12_POST_CHALSHOCK"
+            },
+            {
+                "block_name": "post_opto_20hz",
+                "dir_name": "HAMILTON_03_2019-05-24_12-14-08_WAY"
+            }
+        ],
+        "dat_file": "hamilton_03.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "CH59"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_04",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "acute_cit",
+            "date": "2019-05-29",
+            "start_time": "10-45-29"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "FAMILTON_04_2019-05-29_10-45-29_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "FAMILTON_04_2019-05-29_11-24-27_BASESHOCK2"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "FAMILTON_04_2019-05-29_11-34-56_POST_BASESHOCK2"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "FAMILTON_04_2019-05-29_11-45-38_CIT"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "FAMILTON_04_2019-05-29_12-05-47_CHALSHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "FAMILTON_04_2019-05-29_12-16-08_POST_CHALSHOCK"
+            }
+        ],
+        "dat_file": "hamilton_04.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            },
+            {
+                "signal_name": "temperature",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "ADC1"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "ADC5"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_09",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "acute_cit",
+            "date": "2019-05-30",
+            "start_time": "12-04-35"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "FAMILTON_09_2019-05-30_12-04-35_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "FAMILTON_09_2019-05-30_12-34-58_BASESHOCK"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "FAMILTON_09_2019-05-30_12-46-30_BASE_2"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "FAMILTON_09_2019-05-30_12-57-34_CITALOPRAM"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "FAMILTON_09_2019-05-30_13-17-44_CHALSHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "FAMILTON_09_2019-05-30_13-28-00_PAT_CHALSHOCK"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "FAMILTON_09_2019-05-30_13-38-07_WAY"
+            }
+        ],
+        "dat_file": "hamilton_09.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            },
+            {
+                "signal_name": "temperature",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "ADC1"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "ADC5"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_01",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "chronic_saline",
+            "date": "2019-06-05",
+            "start_time": "10-19-26"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_CHRONIC_FIRST_2019-06-05_10-19-26_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_CHRONIC_FIRST_2019-06-05_10-50-01_BASESHOCK"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_CHRONIC_FIRST_2019-06-05_11-00-20_BASELINE_2"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_CHRONIC_FIRST_2019-06-05_11-11-00_CIT"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_CHRONIC_FIRST_2019-06-05_11-31-09_CHALSHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_CHRONIC_FIRST_2019-06-05_11-41-25_POST_CHALSHOCK"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "HAMILTON_CHRONIC_FIRST_2019-06-05_11-54-17_WAY"
+            }
+        ],
+        "dat_file": "hamilton_01.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            },
+            {
+                "signal_name": "temperature",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "ADC1"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "ADC5"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_02",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "citalopram_continuation",
+            "date": "2019-06-05",
+            "start_time": "13-49-39"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_CHRONIC_02_2019-06-05_13-49-39_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_CHRONIC_02_2019-06-05_14-20-17_BASESHOCK"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_CHRONIC_02_2019-06-05_14-30-35_BASE_2"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_CHRONIC_02_2019-06-05_14-41-10_CIT"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_CHRONIC_02_2019-06-05_15-02-04_CHAL_SHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_CHRONIC_02_2019-06-05_15-12-29_BASE_3"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "HAMILTON_CHRONIC_02_2019-06-05_15-23-14_WAY"
+            }
+        ],
+        "dat_file": "hamilton_02.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            },
+            {
+                "signal_name": "temperature",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "ADC1"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "ADC5"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_12",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "citalopram_discontinuation",
+            "date": "2019-06-06",
+            "start_time": "14-01-04"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_CHRONIC_12_2019-06-06_14-01-04_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_CHRONIC_12_2019-06-06_14-31-23_FOOTSHOCK_1"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_CHRONIC_12_2019-06-06_14-41-39_POST_FOOTSHOCK_1"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_CHRONIC_12_2019-06-06_14-52-38_CITALOPRAM"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_CHRONIC_12_2019-06-06_15-13-11_CITALOPRAM_FOOTSHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_CHRONIC_12_2019-06-06_15-23-24_post_CITALOPRAM_FOOTSHOCK"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "HAMILTON_CHRONIC_12_2019-06-06_15-34-06_WAY"
+            }
+        ],
+        "dat_file": "hamilton_12.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            },
+            {
+                "signal_name": "temperature",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "ADC1"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "ADC5"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_13",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "chronic_saline",
+            "date": "2019-06-07",
+            "start_time": "10-40-00"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_CHRONIC_13_2019-06-07_10-40-00_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_CHRONIC_13_2019-06-07_11-10-15_BASESHOCK"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_CHRONIC_13_2019-06-07_11-20-33_POST_BASESHOCK"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_CHRONIC_13_2019-06-07_11-30-57_CITALOPRAM"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_CHRONIC_13_2019-06-07_11-51-08_CHALSHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_CHRONIC_13_2019-06-07_12-01-27_POST_CHALSHOCK"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "HAMILTON_CHRONIC_13_2019-06-07_12-13-16_WAY"
+            }
+        ],
+        "dat_file": "hamilton_13.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            },
+            {
+                "signal_name": "temperature",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "ADC1"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "ADC5"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_14",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "citalopram_continuation",
+            "date": "2019-06-07",
+            "start_time": "14-46-59"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_CHRONIC_14_2019-06-07_14-46-59_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_CHRONIC_14_2019-06-07_15-17-24_FOOTSHOCKBASELINE"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_CHRONIC_14_2019-06-07_15-27-35_post_FOOTSHOCKBASELINE"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_CHRONIC_14_2019-06-07_15-40-36_CIT"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_CHRONIC_14_2019-06-07_16-00-47_CITshock"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_CHRONIC_14_2019-06-07_16-11-08_post_CITshock"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "HAMILTON_CHRONIC_14_2019-06-07_16-21-28_WAY"
+            }
+        ],
+        "dat_file": "hamilton_14.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            },
+            {
+                "signal_name": "temperature",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "ADC1"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "ADC5"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_05",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "citalopram_discontinuation",
+            "date": "2019-06-09",
+            "start_time": "10-56-26"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_CHRONIC_05_2019-06-09_10-56-26_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_CHRONIC_05_2019-06-09_11-26-41_BASESHOCK"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_CHRONIC_05_2019-06-09_11-36-56_POST_BASESHOCK"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_CHRONIC_05_2019-06-09_11-47-12_CITALOPRAM"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_CHRONIC_05_2019-06-09_12-07-24_CHALSHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_CHRONIC_05_2019-06-09_12-17-34_POST_CHALSHOCK"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "HAMILTON_CHRONIC_05_2019-06-09_12-28-23_WAY"
+            }
+        ],
+        "dat_file": "hamilton_05.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            },
+            {
+                "signal_name": "temperature",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "ADC1"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "ADC5"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_17",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "citalopram_discontinuation",
+            "date": "2019-06-10",
+            "start_time": "15-04-41"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_17_2019-06-10_15-04-41_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_17_2019-06-10_15-35-22_BASESHOCK"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_17_2019-06-10_15-45-33_POST_BASESHOCK"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_17_2019-06-10_15-55-41_CIT"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_17_2019-06-10_16-16-02_CITSHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_17_2019-06-10_16-26-18_POST_CITSHOCK"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "HAMILTON_17_2019-06-10_16-36-27_WAY"
+            }
+        ],
+        "dat_file": "hamilton_17.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            },
+            {
+                "signal_name": "temperature",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "ADC1"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "ADC5"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_18",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "citalopram_discontinuation",
+            "date": "2019-06-10",
+            "start_time": "11-18-47"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_18_2019-06-10_11-18-47_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_18_2019-06-10_11-49-04_BASESHOCK"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_18_2019-06-10_11-59-16_POST_BASESHOCK"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_18_2019-06-10_12-09-50_CIT"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_18_2019-06-10_12-30-01_CITSHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_18_2019-06-10_12-41-25_post_CITSHOCK"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "HAMILTON_18_2019-06-10_12-51-56_WAY"
+            }
+        ],
+        "dat_file": "hamilton_18.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            },
+            {
+                "signal_name": "temperature",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "ADC1"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "ADC5"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_23",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "citalopram_continuation",
+            "date": "2019-06-11",
+            "start_time": "14-40-41"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_23_2019-06-11_14-40-41_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_23_2019-06-11_15-11-06_BASESHOCK"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_23_2019-06-11_15-21-16_POST_BASESHOCK"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_23_2019-06-11_15-31-23_CIT"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_23_2019-06-11_15-51-43_CITSHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_23_2019-06-11_16-01-58_POST_CITSHOCK"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "HAMILTON_23_2019-06-11_16-12-05_WAY"
+            }
+        ],
+        "dat_file": "hamilton_23.dat",
+        "analog_signals": [
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_manual": true,
+                "fname": "manual_events.npy"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_07",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "chronic_saline",
+            "date": "2019-06-12",
+            "start_time": "11-37-25"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_07_2019-06-12_11-37-25_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_07_2019-06-12_12-07-36_BASESHOCK"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_07_2019-06-12_12-17-47_POST_BASESHOCK"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_07_2019-06-12_12-27-51_CIT"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_07_2019-06-12_12-48-26_CHALSHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_07_2019-06-12_12-58-35_POST_CHALSHOCK"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "HAMILTON_07_2019-06-12_13-09-00_WAY"
+            }
+        ],
+        "dat_file": "hamilton_07.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            },
+            {
+                "signal_name": "temperature",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "ADC1"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "ADC5"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_08",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "citalopram_continuation",
+            "date": "2019-06-12",
+            "start_time": "15-49-43"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_CHRONIC_08_2019-06-12_15-49-43_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_CHRONIC_08_2019-06-12_16-19-56_BASESHOCK"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_CHRONIC_08_2019-06-12_16-30-09_POST_BASESHOCK"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_CHRONIC_08_2019-06-12_16-40-26_CIT"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_CHRONIC_08_2019-06-12_17-00-41_CITSHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_CHRONIC_08_2019-06-12_17-11-02_POST_CITSHOCK"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "HAMILTON_CHRONIC_08_2019-06-12_17-22-30_WAY"
+            }
+        ],
+        "dat_file": "hamilton_08.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            },
+            {
+                "signal_name": "temperature",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "ADC1"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "ADC5"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_19",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "chronic_saline",
+            "date": "2019-06-13",
+            "start_time": "11-12-26"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_CHRONIC_19_2019-06-13_11-12-26_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_CHRONIC_19_2019-06-13_11-42-47_BASESHOCK"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_CHRONIC_19_2019-06-13_11-53-18_POST_BASESHOCK"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_CHRONIC_19_2019-06-13_12-03-54_CIT"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_CHRONIC_19_2019-06-13_12-24-10_CITSHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_CHRONIC_19_2019-06-13_12-34-20_POST_CITSHOCK"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "HAMILTON_CHRONIC_19_2019-06-13_12-44-30_WAY"
+            }
+        ],
+        "dat_file": "hamilton_19.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            },
+            {
+                "signal_name": "temperature",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "ADC1"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "ADC5"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_20",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "citalopram_continuation",
+            "date": "2019-06-13",
+            "start_time": "14-35-48"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_CHRONIC_20_2019-06-13_14-35-48_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_CHRONIC_20_2019-06-13_15-06-02_BASESHOCK"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_CHRONIC_20_2019-06-13_15-16-15_POST_BASESHOCK"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_CHRONIC_20_2019-06-13_15-27-42_CIT"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_CHRONIC_20_2019-06-13_15-47-51_CITSHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_CHRONIC_20_2019-06-13_15-58-14_POST_CITSHOCK"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "HAMILTON_CHRONIC_20_2019-06-13_16-08-32_WAY"
+            }
+        ],
+        "dat_file": "hamilton_20.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH44"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            },
+            {
+                "signal_name": "temperature",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "ADC1"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_analog": true,
+                "channel": "ADC5"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_31",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "acute_cit",
+            "date": "2019-07-26",
+            "start_time": "10-57-40"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_27_2019-07-26_10-57-40_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_27_2019-07-26_11-27-51_BASE_SHOCK"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_27_2019-07-26_11-38-14_POST_BASE_SHOCK"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_27_2019-07-26_11-48-25_CIT"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_27_2019-07-26_12-08-31_CIT_SHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_27_2019-07-26_12-18-55_POST_CIT_SHOCK"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "HAMILTON_27_2019-07-26_12-29-53_WAY"
+            }
+        ],
+        "dat_file": "hamilton_31.dat",
+        "analog_signals": [
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_manual": true,
+                "fname": "manual_events.npy"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_38",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "acute_cit",
+            "date": "2019-07-26",
+            "start_time": "14-20-49"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_28_2019-07-26_14-20-49_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_28_2019-07-26_14-51-02_BASE_SHOCK"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_28_2019-07-26_15-01-17_POST_BASE_SHOCK"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_28_2019-07-26_15-11-50_CIT"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_28_2019-07-26_15-32-10_CIT_SHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_28_2019-07-26_15-42-28_POST_CIT_SHOCK"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "HAMILTON_28_2019-07-26_15-52-34_WAY"
+            }
+        ],
+        "dat_file": "hamilton_38.dat",
+        "analog_signals": [
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_manual": true,
+                "fname": "manual_events.npy"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_37",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "acute_sal",
+            "date": "2019-07-27",
+            "start_time": "11-43-31"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_29_2019-07-27_11-43-31_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_29_2019-07-27_12-13-42_BASE_SHOCK"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_29_2019-07-27_12-24-03_POST_BASE_SHOCK"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_29_2019-07-27_12-34-27_CHAL"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_29_2019-07-27_12-55-17_CHAL_SHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_29_2019-07-27_13-07-15_POST_CHAL_SHOCK"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "HAMILTON_29_2019-07-27_13-17-27_WAY"
+            }
+        ],
+        "dat_file": "hamilton_37.dat",
+        "analog_signals": [
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_manual": true,
+                "fname": "manual_events.npy"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_35",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "acute_sal",
+            "date": "2019-07-27",
+            "start_time": "17-31-57"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_30_2019-07-27_17-31-57_PRE_USETHIS"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_30_2019-07-27_18-08-46_BASE_SHOCK_USE_THIS"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_30_2019-07-27_18-19-09_POST_BASE_SHOCK"
+            }
+        ],
+        "dat_file": "hamilton_35.dat",
+        "analog_signals": [
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_manual": true,
+                "fname": "manual_events.npy"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_36",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "acute_cit",
+            "date": "2019-07-28",
+            "start_time": "14-44-58"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_32_2019-07-28_14-44-58_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_32_2019-07-28_15-15-09_BASE_SHOCK"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_32_2019-07-28_15-25-54_POST_BASE_SHOCK"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_32_2019-07-28_15-36-12_CIT"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_32_2019-07-28_15-56-25_CIT_SHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_32_2019-07-28_16-06-38_POST_CIT_SHOCK"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "HAMILTON_32_2019-07-28_16-17-28_WAY"
+            }
+        ],
+        "dat_file": "hamilton_36.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH51"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_digital": true,
+                "channel": "4"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_32",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "acute_sal",
+            "date": "2019-07-28",
+            "start_time": "18-28-59"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_33_2019-07-28_18-28-59_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_33_2019-07-28_18-59-16_BASE_SHOCK"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_33_2019-07-28_19-11-50_POST_BASE_SHOCK"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_33_2019-07-28_19-22-38_CHAL_USETHIS"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_33_2019-07-28_19-43-10_CHAL_SHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_33_2019-07-28_19-53-50_POST_CHALSHOCK_BASELINE"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "HAMILTON_33_2019-07-28_20-07-13_WAY"
+            }
+        ],
+        "dat_file": "hamilton_32.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH51"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_digital": true,
+                "channel": "4"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_25",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "citalopram_discontinuation",
+            "date": "2019-07-30",
+            "start_time": "11-00-11"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_34_2019-07-30_11-00-11_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_34_2019-07-30_11-30-22_BASE_SHOCK"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_34_2019-07-30_11-40-31_POST_BASE_SHOCK"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_34_2019-07-30_11-50-45_CIT"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_34_2019-07-30_12-11-19_CIT_SHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_34_2019-07-30_12-21-38_POST_CIT_SHOCK"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "HAMILTON_34_2019-07-30_12-31-45_WAY"
+            }
+        ],
+        "dat_file": "hamilton_25.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH51"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_digital": true,
+                "channel": "4"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_26",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "citalopram_discontinuation",
+            "date": "2019-07-30",
+            "start_time": "14-32-42"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_35_2019-07-30_14-32-42_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_35_2019-07-30_15-02-53_BASE_SHOCK"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_35_2019-07-30_15-13-12_POST_BASE_SHOCK"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_35_2019-07-30_15-23-19_CIT"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_35_2019-07-30_15-43-39_CIT_SHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_35_2019-07-30_15-53-55_POST_CIT_SHOCK"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "HAMILTON_35_2019-07-30_16-04-01_WAY"
+            }
+        ],
+        "dat_file": "hamilton_26.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH51"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_digital": true,
+                "channel": "4"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_26",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "citalopram_discontinuation",
+            "date": "2019-07-30",
+            "start_time": "14-32-42"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_35_2019-07-30_14-32-42_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_35_2019-07-30_15-02-53_BASE_SHOCK"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_35_2019-07-30_15-13-12_POST_BASE_SHOCK"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_35_2019-07-30_15-23-19_CIT"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_35_2019-07-30_15-43-39_CIT_SHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_35_2019-07-30_15-53-55_POST_CIT_SHOCK"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "HAMILTON_35_2019-07-30_16-04-01_WAY"
+            }
+        ],
+        "dat_file": "hamilton_26.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH51"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_digital": true,
+                "channel": "4"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_28",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "citalopram_discontinuation",
+            "date": "2019-07-31",
+            "start_time": "11-24-32"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_36_2019-07-31_11-24-32_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_36_2019-07-31_11-54-45_BASE_SHOCK"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_36_2019-07-31_12-05-14_POST_BASE_SHOCK"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_36_2019-07-31_12-15-46_CIT"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_36_2019-07-31_12-36-02_CIT_SHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_36_2019-07-31_12-46-18_POST_CIT_SHOCK"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "HAMILTON_36_2019-07-31_12-56-51_WAY"
+            }
+        ],
+        "dat_file": "hamilton_28.dat",
+        "analog_signals": [
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_digital": true,
+                "channel": "4"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_29",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "citalopram_discontinuation",
+            "date": "2019-07-31",
+            "start_time": "14-28-46"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_37_2019-07-31_14-28-46_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_37_2019-07-31_14-59-06_BASE_SHOCK"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_37_2019-07-31_15-09-19_POST_BASE_SHOCK"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_37_2019-07-31_15-23-02_CIT"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_37_2019-07-31_15-43-20_CIT_SHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_37_2019-07-31_15-53-37_POST_CIT_SHOCK"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "HAMILTON_37_2019-07-31_16-03-56_WAY"
+            }
+        ],
+        "dat_file": "hamilton_29.dat",
+        "analog_signals": [
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_digital": true,
+                "channel": "4"
+            }
+        ]
+    },
+    {
+        "meta": {
+            "session_name": "hamilton_30",
+            "experiment_name": "HAMILTON",
+            "experimental_group_name": "citalopram_discontinuation",
+            "date": "2019-08-01",
+            "start_time": "11-04-28"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "120"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "HAMILTON_38_2019-08-01_11-04-28_PRE"
+            },
+            {
+                "block_name": "base_shock",
+                "dir_name": "HAMILTON_38_2019-08-01_11-36-22_BASE_SHOCK_USETHIS"
+            },
+            {
+                "block_name": "post_base_shock",
+                "dir_name": "HAMILTON_38_2019-08-01_11-46-46_POST_BASE_SHOCK_USETHIS"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "HAMILTON_38_2019-08-01_11-58-05_CIT"
+            },
+            {
+                "block_name": "chal_shock",
+                "dir_name": "HAMILTON_38_2019-08-01_12-18-17_CIT_SHOCK"
+            },
+            {
+                "block_name": "post_chal_shock",
+                "dir_name": "HAMILTON_38_2019-08-01_12-28-30_POST_CIT_SHOCK"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "HAMILTON_38_2019-08-01_12-38-44_WAY"
+            }
+        ],
+        "dat_file": "hamilton_30.dat",
+        "analog_signals": [
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": [
+            {
+                "signal_type": "event",
+                "signal_name": "eshock",
+                "from_digital": true,
+                "channel": "4"
+            }
+        ]
     }
 ]

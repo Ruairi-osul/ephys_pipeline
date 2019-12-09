@@ -66,6 +66,8 @@ def get_waveforms(spike_data, rd):
     f1 = partial(_extract_waveforms, raw_data=raw_data, ret="data")
     f2 = partial(_extract_waveforms, raw_data=raw_data, ret="")
 
+    spike_data = spike_data.groupby("cluster_id").filter(lambda x: len(x) > 500)
+
     waveforms = (
         spike_data.groupby("cluster_id")["spike_time_samples"]
         .apply(f1, raw_data=raw_data)
@@ -88,7 +90,8 @@ def get_waveforms(spike_data, rd):
 def _extract_waveforms(
     spk_tms, raw_data, ret="data", n_spks=400, n_samps=240, n_chans=32
 ):
-    assert len(spk_tms) > n_spks, "Not ennough spikes"
+    if len(spk_tms) < n_spks:
+        return np.nan
     spk_tms = spk_tms.values
     window = np.arange(int(-n_samps / 2), int(n_samps / 2))
     wvfrms = np.zeros((n_spks, n_samps, n_chans))

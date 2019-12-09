@@ -46,7 +46,9 @@ class RecordingSession:
         if discrete_signals is not None:
             self.discrete_signals = [
                 DiscreteSignal(
-                    **dsig, continuous_prefix=self.config["continuous_prefix"]
+                    **dsig,
+                    continuous_prefix=self.config["continuous_prefix"],
+                    session_name=self.meta["session_name"],
                 )
                 for dsig in discrete_signals
             ]
