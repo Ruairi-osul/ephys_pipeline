@@ -741,8 +741,8 @@
             {
                 "signal_type": "event",
                 "signal_name": "opto",
-                "from_analog": true,
-                "channel": "ADC8"
+                "from_digital": true,
+                "channel": "4"
             }
         ]
     },
