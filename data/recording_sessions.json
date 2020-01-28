@@ -4366,5 +4366,659 @@
                 "channel": "4"
             }
         ]
+    },
+    {
+        "meta": {
+            "session_name": "acute_15",
+            "experiment_name": "CITWAY",
+            "experimental_group_name": "acute_saline",
+            "date": "2018-09-10",
+            "start_time": "11-04-20"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "100"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "CIT_SAL_04_2018-09-10_11-04-20_PRE"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "CIT_SAL_04_2018-09-10_12-05-11_SAL"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "CIT_SAL_04_2018-09-10_13-05-48_WAY"
+            }
+        ],
+        "dat_file": "acute_15.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": []
+    },
+    {
+        "meta": {
+            "session_name": "chronic_08",
+            "experiment_name": "CITWAY",
+            "experimental_group_name": "chronic_citalopram",
+            "date": "2018-08-09",
+            "start_time": "15-34-14"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "100"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "Chronic_41_2018-08-09_15-34-14_PRE"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "Chronic_41_2018-08-09_16-35-35_CIT"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "Chronic_41_2018-08-09_17-36-56_WAY"
+            }
+        ],
+        "dat_file": "chronic_08.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": []
+    },
+    {
+        "meta": {
+            "session_name": "acute_16",
+            "experiment_name": "CITWAY",
+            "experimental_group_name": "acute_saline",
+            "date": "2018-09-11",
+            "start_time": "11-24-55"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "100"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "CIT_SAL_05_2018-09-11_11-24-55_PRE"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "CIT_SAL_05_2018-09-11_12-39-21_SAL"
+            }
+        ],
+        "dat_file": "acute_16.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": []
+    },
+    {
+        "meta": {
+            "session_name": "acute_01",
+            "experiment_name": "CITWAY",
+            "experimental_group_name": "acute_citalopram",
+            "date": "2018-05-01",
+            "start_time": "15-34-14"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "100"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "CIT_WAY_1_2018-05-01_15-59-19_PRE"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "CIT_WAY_1_2018-05-01_17-05-11_cit"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "CIT_WAY_1_2018-05-01_18-06-45_way"
+            }
+        ],
+        "dat_file": "acute_01.dat",
+        "analog_signals": [
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": []
+    },
+    {
+        "meta": {
+            "session_name": "acute_14",
+            "experiment_name": "CITWAY",
+            "experimental_group_name": "acute_saline",
+            "date": "2018-09-07",
+            "start_time": "13-56-35"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "100"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "CIT_SAL_03_2018-09-07_13-56-35_PRE"
+            }
+        ],
+        "dat_file": "acute_14.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": []
+    },
+    {
+        "meta": {
+            "session_name": "chronic_09",
+            "experiment_name": "CITWAY",
+            "experimental_group_name": "chronic_saline_",
+            "date": "2018-08-10",
+            "start_time": "13-49-50"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "100"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "Chronic_31_2018-08-10_13-49-50_PRE"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "Chronic_31_2018-08-10_14-52-27_CIT"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "Chronic_31_2018-08-10_15-52-52_WAY"
+            }
+        ],
+        "dat_file": "chronic_09.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": []
+    },
+    {
+        "meta": {
+            "session_name": "acute_12",
+            "experiment_name": "CITWAY",
+            "experimental_group_name": "acute_saline",
+            "date": "2018-09-06",
+            "start_time": "14-49-11"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "100"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "CIT_SAL_02_2018-09-06_14-49-11_PRE"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "CIT_SAL_02_2018-09-06_15-49-52_SAL"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "CIT_SAL_02_2018-09-06_17-03-52_WAY"
+            }
+        ],
+        "dat_file": "acute_12.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": []
+    },
+    {
+        "meta": {
+            "session_name": "acute_11",
+            "experiment_name": "CITWAY",
+            "experimental_group_name": "acute_saline",
+            "date": "2018-09-05",
+            "start_time": "14-57-25"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "100"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "CIT_SAL_01_2018-09-05_14-57-25_PRE"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "CIT_SAL_01_2018-09-05_15-58-15_SAL"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "CIT_SAL_01_2018-09-05_17-05-00_WAY"
+            }
+        ],
+        "dat_file": "acute_11.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": []
+    },
+    {
+        "meta": {
+            "session_name": "chronic_01",
+            "experiment_name": "CITWAY",
+            "experimental_group_name": "acute_saline",
+            "date": "2018-09-05",
+            "start_time": "14-57-25"
+        },
+        "config": {
+            "probe": {
+                "sampleing_rate": 30000,
+                "chan_map_name": "default"
+            },
+            "continuous_prefix": "100"
+        },
+        "continuous_blocks": [
+            {
+                "block_name": "pre",
+                "dir_name": "Chronic_30_2018-07-28_14-08-40_PRE"
+            },
+            {
+                "block_name": "chal",
+                "dir_name": "Chronic_30_2018-07-28_15-09-35_CIT"
+            },
+            {
+                "block_name": "way",
+                "dir_name": "Chronic_30_2018-07-28_16-14-10_WAY"
+            }
+        ],
+        "dat_file": "chronic_01.dat",
+        "analog_signals": [
+            {
+                "signal_name": "eeg_fl",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH46"
+            },
+            {
+                "signal_name": "eeg_fr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "eeg_occ",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH43"
+            },
+            {
+                "signal_name": "lfp_ur",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH17"
+            },
+            {
+                "signal_name": "lfp_lr",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH24"
+            },
+            {
+                "signal_name": "lfp_ul",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH1"
+            },
+            {
+                "signal_name": "lfp_ll",
+                "current_sampling_rate": 30000,
+                "desired_sampling_rate": 250,
+                "channel": "CH8"
+            }
+        ],
+        "discrete_signals": []
     }
 ]

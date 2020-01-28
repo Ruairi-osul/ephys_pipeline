@@ -185,5 +185,56 @@
                 "block_description": "the 5ht 1a antagonist WAY100165 was administered"
             }
         ]
+    },
+    {
+        "meta": {
+            "experiment_name": "CITWAY",
+            "description": "Terminal probe recording in the DRN. Mice had various degress of prior citalopram exposure"
+        },
+        "paths": {
+            "exp_home_dir": "CITWAY",
+            "continuous_home_dir": "continuous",
+            "dat_file_dir": "probe_dat_dir",
+            "extracted_dir": "extracted",
+            "tmp_dir": "tmp"
+        },
+        "experimental_groups": [
+            {
+                "group_name": "acute_citalopram",
+                "description": "treatment-naive which were injected with citalopram during the recording."
+            },
+            {
+                "group_name": "acute_saline",
+                "description": "treatment-naive mice which were injected with saline during the recording."
+            },
+            {
+                "group_name": "chronic_citalopram",
+                "description": "14 days of twise daily citalopram prior to the recording. Citalopram administered during the recording."
+            },
+            {
+                "group_name": "chronic_saline_",
+                "description": "14 days of twise daily saline prior to the recording. Citalopram administered during the recording."
+            }
+        ],
+        "experimental_blocks": [
+            {
+                "block_name": "pre",
+                "block_index": 1,
+                "ideal_length_min": 60,
+                "block_description": "baseline period"
+            },
+            {
+                "block_name": "chal",
+                "block_index": 2,
+                "ideal_length_min": 60,
+                "block_description": "saline or citalopram was administered i.p."
+            },
+            {
+                "block_name": "way",
+                "block_index": 3,
+                "ideal_length_min": 60,
+                "block_description": "the 5ht 1a antagonist WAY100165 was administered"
+            }
+        ]
     }
 ]
